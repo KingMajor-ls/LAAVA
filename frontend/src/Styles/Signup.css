@@ -1,0 +1,19 @@
+.signup h1 {
+    color: aliceblue;
+}
+
+.butt {
+    margin-bottom: 100px;
+    /* align-items: center ; */
+    margin-left: 0px;
+
+}
+
+button {
+    margin-left: 20px;
+}
+
+.signForm {
+    width: 200px;
+    margin: 0 auto; 
+ }
