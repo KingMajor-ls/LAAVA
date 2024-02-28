@@ -1,0 +1,2 @@
+# APIKEY = "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"
+APIKEY = "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"
