@@ -6,6 +6,9 @@ const login_model = require('./models/login');
 const { runChatModel } = require('./models/chat');
 const weather_model = require('./models/weather');
 const predict_model = require('./models/predict');
+const sensor_model = require('./models/getSensorData');
+
+require('./models/fetchDataFromThingSpeak');
 
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' }); // Set the destination folder for uploaded images
@@ -70,6 +73,16 @@ app.post('/chat', (req, res) => {
   res.status(200).json({ answer: result });
 });
 
+//Handle SensorData Request
+app.get('/sensorData', (req, res) => {
+  sensor_model.getSensor()
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .catch(error => {
+    res.status(500).send(error);
+  })
+});
 
 // Handle weather request
 app.get('/weather', async (req, res) => {
