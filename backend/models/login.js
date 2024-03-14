@@ -5,7 +5,7 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'laava_database',
-  password: '',        
+  password: 'root',        
   port: 5432,
 });
 
@@ -13,12 +13,22 @@ const getUsers = () => {
   return new Promise(function(resolve, reject) {
     pool.query('SELECT * FROM farmer ORDER BY username ASC', (error, results) => {
       if (error) {
-        reject(error)
+        // Reject the promise with the error
+        reject(error);
+      } else {
+        // Check if results.rows is defined before accessing it
+        if (results && results.rows) {
+          // Resolve the promise with the query results
+          resolve(results.rows);
+        } else {
+          // If results.rows is undefined or empty, reject the promise
+          reject(new Error('No rows returned from the query'));
+        }
       }
-      resolve(results.rows);
-    })
-  }) 
-}
+    });
+  });
+};
+
 
 // const createUsers = (body) => {
 //   return new Promise(function(resolve, reject) {

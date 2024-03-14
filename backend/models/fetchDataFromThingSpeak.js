@@ -8,7 +8,7 @@ const pool = new Pool({
     user: 'postgres',  // Replace with your PostgreSQL username
     host: 'localhost',       // Use 'localhost' or '127.0.0.1' for local connections
     database: 'laava_database',
-    password: '',  // Replace with your PostgreSQL password
+    password: 'root',  // Replace with your PostgreSQL password
     port: 5432,              // Default PostgreSQL port
 });
 

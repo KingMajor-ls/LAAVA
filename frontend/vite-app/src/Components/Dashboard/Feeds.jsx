@@ -84,38 +84,7 @@
 
 // export default Feeds;
 
-////////////////////////////////////////////////////////////////////////////////
-// import{ useState, useEffect } from 'react';
-// import axios from 'axios';
 
-// const Feeds = () => {
-//   const [appContent, setAppContent] = useState('');
-
-//   useEffect(() => {
-//     const fetchAppComponent = async () => {
-//       try {
-//         const response = await axios.get('http://localhost:3000/');
-//         console.log(response);
-//         console.log("Hello see data below");
-//         console.log(response.data);
-//         setAppContent(response.data);
-//       } catch (error) {
-//         console.error('Error fetching AppComponent:', error);
-//       }
-//     };
-
-//     fetchAppComponent();
-//   }, []);
-
-//   return (
-//     <div>
-//       <h1>Feeds Component</h1>
-//       <div dangerouslySetInnerHTML={{ __html: appContent }} />
-//     </div>
-//   );
-// };
-
-// export default Feeds;
 
 import Layout from "./Layout";
 

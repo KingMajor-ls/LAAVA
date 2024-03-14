@@ -103,6 +103,9 @@ input {
   background-color: #054108cf;
   margin: 0;
   padding: 0;
+  width: 1258px;
+  position: fixed;
+  height: 100%;
   /* height: 94vh;
   width: 150vh; */
   /* border: 2px solid white; */

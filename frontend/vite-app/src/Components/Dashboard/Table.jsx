@@ -59,7 +59,7 @@ const renderTableData = () => {
         <Link to="/dashboard">
             see charts
         </Link>
-      <h2>Sensor Data Table</h2>
+      <h2> Sensor Data Table</h2>
       {humidityAndTemp.length > 0 ? (
         <table className='data-table'>
           <thead>

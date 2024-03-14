@@ -1,37 +1,43 @@
 /* Search.css */
 
 .search-container {
-  /* display: flex; */
-  /* align-items: center; */
-  /* width: 900px; */
-  background-color: none;
-  margin-right: -600px;
-  
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto; /* Center the search container horizontally */
 }
 
 .search-input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  /* border-radius: 4px; */
   flex: 1;
-  width: 500px;
+  padding: 10px;
+  border: 2px solid #ddd; /* Light gray border */
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333; /* Dark text color */
+  transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+.search-input:focus {
+  border-color: #56d55d; /* Highlight border color when input is focused */
 }
 
 .search-button {
-  background: #56d55d;
+  background-color: #56d55d; /* Green background color */
+  color: white; /* White text color */
   border: none;
   cursor: pointer;
-  padding: 10px;
-  border-radius: 4px;
-  margin-top: -15px;
+  padding: 10px 20px; /* Increase padding for better clickability */
+  border-radius: 5px;
+  margin-left: 10px; /* Add some spacing between input and button */
 }
 
 .search-button img {
-  width: 20px; /* Adjust the width of the search icon */
-  height: 20px; /* Adjust the height of the search icon */
+  width: 20px;
+  height: 20px;
+  vertical-align: middle; /* Align the icon vertically */
+  margin-right: 5px; /* Add some spacing between icon and text */
 }
 
 .search-button:hover {
-  background: #4ab64a; /* Change the background color on hover if desired */
+  background-color: #4ab64a; /* Darker green on hover */
 }
-

@@ -52,21 +52,16 @@ body {
   /* height: 60px; */
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  /* padding: 0 30px 0 30px; */
+  padding: 0 30px 0 30px; 
   /* box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35); */
   /* background-color: #4CAF50; */
   background-color: #012707;;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  padding: 0 30px;
+  width:100%;  
+  height: 90px;
   padding-top: 0.5px; /* Adjust according to the height of the header */
   color: white;
   z-index: 100; /* Ensure the header stays on top of other content */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
 }
 
 .menu-icon {
@@ -78,22 +73,45 @@ body {
   align-items: center;
   margin-left: 10px;
 }
+.header-right{
+  color:white;
+  display: flex;  
+}
+
+.search-input-container {
+  position: relative;
+  flex: 1;
+}
 
 .search-input {
-  background-color: transparent; /* Set background to transparent */
-  border: 1px solid #ccc; /* Add a 1px border */
-  border-radius: 5px; /* Set border-radius to 5px */
-  padding: 8px; /* Add padding for better appearance */
-  margin-right: 1px; /* Set margin-right to 1px for spacing with the icon */
-  color: white;
+  position: relative;
+  margin-left: 350px;
+
+  width: 450px;
+  margin-top: 15px;
+  padding: 10px 40px 10px 10px;
+  border: 2px solid whitesmoke;
+  border-radius: 20px;
+  font-size: 16px;
+  color:#012707; /* Adjust the color to a contrasting one */
+  outline: none;
+  transition: border-color 0.3s;
 }
 
 .iconSearch {
-  margin-left: 10px; /* Adjust margin-left to -1px for spacing with the input */
-  font-size: 25px;
-  margin-top: -5px;
-  color: white;
+  position: relative;
+  margin-top: 25px;
+  top: 50%;
+  right: 37px; /* Adjusted position */
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  color:#012707; /* Adjust the color to a contrasting one */
+  transition: transform 0.3s;
 }
+
+
 
 
 /* End Header  */
@@ -103,11 +121,18 @@ body {
   grid-area: sidebar;
   height: 100%;
   /* background-color: #263043; */
-  background-color: #0d2b0e; 
+  background-color:#012707; 
   overflow-y: auto;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
+
+  position: fixed; /* Fix the position */
+  top: 0; /* Position from the top */
+  left: 0; /* Position from the left */
+  width: 230px;
+  bottom: 0; /* Fill the height of the viewport */
 }
+
 
 .sidebar-title {
   display: flex;
@@ -122,16 +147,17 @@ body {
 }
 
 .sidebar-brand {
-  margin-top: 15px;
-  font-size: 30px;
-  font-weight: 700;
+  right:10;
+  font-size: 20px;
+  font-weight: 300;
+  margin-right: 100px;
+  margin-left: 100px;
 }
 
 .icon_header_login {
   vertical-align: middle;
-  line-height: 1px;
-  font-size: 45px;
-  margin-bottom: 10px;
+  font-size: 28px;
+  margin-bottom: 2px;
 }
 
 .sidebar-list {
@@ -321,8 +347,11 @@ body {
 
 /* Extra Small <= 576px */
 
+/* Extra Small <= 576px */
+
 @media screen and (max-width: 576px) {
-  .hedaer-left {
+  .header-left { /* Corrected class name */
     display: none;
   }
 }
+
