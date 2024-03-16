@@ -3,6 +3,9 @@ import { WiThermometer, WiHumidity, WiStrongWind, WiBarometer, WiCelsius, WiDayC
 // import { FcCloudy } from 'react-icons/fc';
 import Layout from './Layout';
 import '../../Styles/Menu.css';
+import '../../Styles/Footer.css';
+import Footer from '../Footer';
+
 
 const Weather = () => {
   const [city, setCity] = useState('');
@@ -61,6 +64,7 @@ const Weather = () => {
           {error && <p>Error: {error}</p>}
         </div>
       </div>
+      
     </Layout>
   );
 };

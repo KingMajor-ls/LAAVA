@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from './Layout';
+import '../../Styles/Footer.css';
+import Footer from '../Footer';
+
+
+
 
 //   import '../Styles/Dashboard.css';
 
@@ -23,56 +28,56 @@ function Table() {
 
 
   const renderTableHeader = () => {
-  if (humidityAndTemp.length === 0) return null;
+    if (humidityAndTemp.length === 0) return null;
 
-  const header = Object.keys(humidityAndTemp[0]);
-  const filteredHeader = header.filter(key => key !== 'station_id');
+    const header = Object.keys(humidityAndTemp[0]);
+    const filteredHeader = header.filter(key => key !== 'station_id');
 
-  return filteredHeader.map((key, index) => <th key={index}>{key.toUpperCase()}</th>);
-};
+    return filteredHeader.map((key, index) => <th key={index}>{key.toUpperCase()}</th>);
+  };
 
 
-const renderTableData = () => {
-  return humidityAndTemp.map((entry, index) => (
-    <tr key={index}>
-      <td>{entry.id}</td>
-      <td>{entry.soil_moisture}</td>
-      <td>{entry.temperature}</td>
-      <td>{entry.humidity}</td>
-      <td>{new Date(entry.timestamp).toLocaleString('en-US', {
-        year: 'numeric',
-        month: 'numeric',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-        timeZoneName: 'short',
-      })}</td>
-    </tr>
-  ));
-};
+  const renderTableData = () => {
+    return humidityAndTemp.map((entry, index) => (
+      <tr key={index}>
+        <td>{entry.id}</td>
+        <td>{entry.soil_moisture}</td>
+        <td>{entry.temperature}</td>
+        <td>{entry.humidity}</td>
+        <td>{new Date(entry.timestamp).toLocaleString('en-US', {
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric',
+          second: 'numeric',
+          timeZoneName: 'short',
+        })}</td>
+      </tr>
+    ));
+  };
 
 
   return (
     <Layout>
-        <div className='dashboard'>
+      <div className='dashboard'>
         <Link to="/dashboard">
-            see charts
+          see charts
         </Link>
-      <h2> Sensor Data Table</h2>
-      {humidityAndTemp.length > 0 ? (
-        <table className='data-table'>
-          <thead>
-            <tr>{renderTableHeader()}</tr>
-          </thead>
-          <tbody>{renderTableData()}</tbody>
-        </table>
-      ) : (
-        <p>Data is currently unavailable!</p>
-      )}
+        <h2> Sensor Data Table</h2>
+        {humidityAndTemp.length > 0 ? (
+          <table className='data-table'>
+            <thead>
+              <tr>{renderTableHeader()}</tr>
+            </thead>
+            <tbody>{renderTableData()}</tbody>
+          </table>
+        ) : (
+          <p>Data is currently unavailable!</p>
+        )}
 
-    </div>
-
+      </div>
+      
     </Layout>
   );
 }

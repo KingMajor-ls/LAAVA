@@ -1,101 +1,86 @@
-import { useState } from 'react';
+import  { useState } from 'react';
 import axios from 'axios';
 import Layout from './Layout';
-import '../../Styles/Menu.css';
+import '../../Styles/Chat.css';
+import { FaRobot } from 'react-icons/fa'; 
+import { AiOutlineRobot } from 'react-icons/ai'; 
+
+
 
 function Chat() {
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
   const [reque, setReque] = useState("");
-
-  //Handle Image
-  const [image, setImage] = useState(null);
   const [prediction, setPrediction] = useState('');
 
-  let shouldPredict = false;
+  const handleImageChange = async (event) => {
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append('image', file);
 
-const handleImageChange = async (event) => {
-  const file = event.target.files[0];
-  setImage(file);
+    try {
+      const response = await fetch('http://localhost:8080/predict', {
+        method: 'POST',
+        body: formData,
+      });
 
-  const formData = new FormData();
-  formData.append('image', file);
+      const result = await response.json();
+      const predictions = result.predictions;
 
-  try {
-    const response = await fetch('http://localhost:8080/predict', {
-      method: 'POST',
-      body: formData,
-    });
+      if (predictions && predictions.length > 0) {
+        const displayName = predictions[0].displayName;
+        setPrediction(displayName + ': ');
+      } else {
+        setPrediction('No predictions');
+      }
 
-    const result = await response.json();
-    console.log(result); // Handle the result as needed
-     console.log(result.predictions);
-    console.log(result.predictions[0].displayName);
-    const predictions = result.predictions;
-
-    if (predictions && predictions.length > 0) {
-      const displayName = predictions[0].displayName;
-      console.log(displayName);
-      setPrediction(displayName + ': ');
-    } else {
-      setPrediction('No predictions');
+    } catch (error) {
+      console.error('Error uploading image:', error);
     }
-
-  } catch (error) {
-    console.error('Error uploading image:', error);
-  }
-};
-
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted');
     try {
       const res = await axios.post("http://localhost:8080/chat", {
-         query: prediction + prompt
-         });
+        query: prediction + prompt
+      });
       setResponse(res.data.answer);
 
-      // Clear the input text by setting prompt to an empty string
+      // Clear the input text
       setReque(prompt);
       setPrompt("");
       setPrediction("");
-      fileInput.value = '';
     } catch (err) {
       console.error(err);
     }
-};
+  };
 
   return (
-    <div >
+    <div>
       <Layout>
-        <div className='chat'>
-          <div className='chat2'>
+        <div className='chat-container'>
+          <div className='chat-box'>
             <input type="file" accept="image/*" onChange={handleImageChange} />
-            {/* <button onClick={handlePredict}>Predict</button> */}
-            <form className='formChat' onSubmit={handleSubmit}>
-              <div className='lable'>
+            <form className='chat-form' onSubmit={handleSubmit}>
+              <div className='label'>
                 <label>Ask anything?</label>
               </div>
-            <div className='combine'> 
-                <div className='inputBox'>
-                  <input type='text' value={prompt} onChange={(e) => setPrompt(e.target.value)} />
+              <div className='input-combine'>
+                <div className='input-box'>
+                  <input type='text' value={prompt} onChange={(e) => setPrompt(e.target.value)} placeholder="Type here..." />
                 </div>
-                <div className='buttonSubmit'>
-                  <button type='submit'>submit</button>
+                <div className='submit-button'>
+                  <button type='submit'>Submit</button>
                 </div>
               </div>
             </form>
-            {/* <p>{prediction} And {prompt}</p> */}
-            <div className='request'>
-              <p>{reque ? "Me: " : ""} {reque}</p>
+            <div className='user-request'>
+              <p>{reque ? <FaRobot className='robot-icon' /> : ""} {reque}</p> {/* Using robot icon */}
             </div>
-            <div className='response'>
-              <p>{response ? "Chat: " : ""} {response}</p>
+            <div className='chat-response'>
+              <p>{response ? <AiOutlineRobot className='ai-icon' /> : ""} {response}</p> {/* Using AI icon */}
             </div>
-          </div>
-          <div className='bottom-text'>
-            <h3>"Farming looks mighty when your plow is a pencil, and you're a thousand miles from the corn field."</h3>
           </div>
         </div>
       </Layout>

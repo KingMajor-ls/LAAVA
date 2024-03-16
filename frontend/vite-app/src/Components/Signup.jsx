@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import Header from './Header';
 import { Link, useNavigate} from 'react-router-dom';
 import '../Styles/Signup.css'
+import '../Styles/Footer.css'
+import Footer from './Footer';
+
 
 function Signup() {
   const [surname, setSurname] = useState('');
@@ -97,6 +100,8 @@ function Signup() {
           
         </form>
       </div>
+       <div className='footer'>
+        <Footer /></div>
     </div>
   );
 }

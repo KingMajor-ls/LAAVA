@@ -34,7 +34,7 @@ function Header({ OpenSidebar }) {
         {/* Use the BsSearch component directly */}
         <BsSearch className='iconSearch' />
       </div>
-
+      
 
       <div className='sidebar-brand'>
         <BsPersonCircle className='icon_header_login' /> {User}
@@ -42,8 +42,6 @@ function Header({ OpenSidebar }) {
       <div className='header-right'>
         <BsFillBellFill  />Notifications
       </div>
-      
-
     </header>
   )
 }

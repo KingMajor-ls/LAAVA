@@ -94,9 +94,9 @@ const Feeds = () => {
       <div>
         <iframe
         title="Embedded React App"
-        src="http://localhost:3000"
-        width="100%"
-        height="590px"
+        //src="http://localhost:3000"
+       
+      
         // frameBorder="0"
       />
 

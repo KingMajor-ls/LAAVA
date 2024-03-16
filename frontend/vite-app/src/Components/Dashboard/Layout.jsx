@@ -2,6 +2,10 @@ import { useState } from 'react'
 
 import Header from './Header'
 import Sidebar from './Sidebar'
+import '../../Styles/Footer.css';
+
+import Footer from '../Footer';
+
 
 
 // function Layout()
@@ -19,6 +23,7 @@ const Layout = ({ children }) => {
         <div style={{ paddingTop: '30px', position: 'fixed', width:'230px'}}><Sidebar  openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/></div>
         {/* {children} */}
          <div style={{ paddingTop: '60px',paddingLeft:'230px', width:'1128px' }}>{children}</div>
+         
       </div>
       
   )

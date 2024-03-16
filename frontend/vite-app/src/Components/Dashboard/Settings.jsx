@@ -1,4 +1,7 @@
 import Layout from "./Layout";
+import '../../Styles/Footer.css';
+import Footer from '../Footer';
+
 
 // import React from 'react';
 
@@ -13,6 +16,7 @@ const Settings = () => {
       </header>
 
       </div>
+     
     </Layout>
     
   );

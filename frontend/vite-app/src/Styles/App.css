@@ -1,11 +1,12 @@
 /* App.css */
 
 .laava {
-  background-color: #4CAF50; /* Green background color */
+  background-color: #012707; /* Green background color */
   text-align: center;
-  padding: 10px;
+  padding: 10px  0 0 0;
   color: white;
   border-radius: 5px;
+  height: 6vh;
 }
 
 .laava h1 {

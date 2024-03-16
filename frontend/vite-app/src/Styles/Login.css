@@ -6,7 +6,7 @@
   padding: 20px;
   /* background-color: #f4f4f4; */
   background-color: none;
-
+  height: 70vh;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-top: 80px;
@@ -35,17 +35,27 @@ input {
   border-radius: 4px;
 }
 
+.username,.password{
+
+  border-radius: 20px;
+
+}
+
+
+
 .btn1 {
-  background-color: #4caf50;
+  background-color: #012707;
   color: white;
-  padding: 10px;
+  height:35px;
+  width: 100px;
+  
   border: none;
-  border-radius: 4px;
+  border-radius: 30px;
   cursor: pointer;
 }
 
 .btn1:hover {
-  background-color: #45a049;
+  background-color: #0d7b1e;
 }
 /* Login.css */
 
@@ -57,20 +67,20 @@ input {
 }
 
 .btn1 {
-  background-color: #4caf50;
+  background-color: #012707;
   color: white;
   padding: 10px;
   border: none;
-  border-radius: 4px;
+  border-radius: 30px;
   cursor: pointer;
 }
 
 .btn1:hover {
-  background-color: #45a049;
+  background-color: #0e701d;
 }
 
 .forgot-password, h4, Link{
-  color: #2aaa2a;
+  color: #012707;
   text-decoration: none;
   font-size: 14px;
 
@@ -95,7 +105,7 @@ input {
 }
 
 .buttonToggle {
-  background: #5ca15f;
+  background: #012707;
   border: none;
   cursor: pointer;
   width: 30px; /* Adjust the width as needed */

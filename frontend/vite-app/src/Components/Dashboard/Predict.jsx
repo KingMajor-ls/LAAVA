@@ -2,6 +2,10 @@
 
 import { useState } from 'react';
 import axios from 'axios';
+import '../../Styles/Footer.css';
+import Footer from '../Footer';
+
+
 
 const Predict = () => {
   const [image, setImage] = useState(null);
@@ -51,6 +55,7 @@ const Predict = () => {
           <p>{prediction}</p>
         </div>
       )}
+     
     </div>
   );
 };
