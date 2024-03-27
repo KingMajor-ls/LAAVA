@@ -1,18 +1,17 @@
 // import React from 'react';
 import Layout
- from "./Layout";
+  from "./Layout";
 const CropPrices = () => {
   return (
-    <Layout>
-      <div>
+
+    <div>
       <header>
         <h1>See crop prices in real time.</h1>
         {/* <Search /> */}
       </header>
     </div>
 
-    </Layout>
-    
+
   );
 };
 

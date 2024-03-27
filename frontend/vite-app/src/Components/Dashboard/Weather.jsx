@@ -35,7 +35,6 @@ const Weather = () => {
   };
 
   return (
-    <Layout>
       <div className='weatherBody'>
         <div className='weatherHeader'>
           <h1>See weather forecasts in different areas.</h1>
@@ -64,8 +63,6 @@ const Weather = () => {
           {error && <p>Error: {error}</p>}
         </div>
       </div>
-      
-    </Layout>
   );
 };
 

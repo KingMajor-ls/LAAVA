@@ -90,7 +90,6 @@ import Layout from "./Layout";
 
 const Feeds = () => {
   return (
-    <Layout>
       <div>
         <iframe
         title="Embedded React App"
@@ -102,7 +101,6 @@ const Feeds = () => {
 
       </div>
       
-    </Layout>
   );
 };
 

@@ -8,7 +8,6 @@ import Footer from '../Footer';
 
 const Settings = () => {
   return (
-    <Layout>
       <div>
       <header>
         <h1>change settings</h1>
@@ -17,7 +16,6 @@ const Settings = () => {
 
       </div>
      
-    </Layout>
     
   );
 };

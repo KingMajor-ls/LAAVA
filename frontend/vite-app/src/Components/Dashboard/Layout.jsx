@@ -1,32 +1,26 @@
-import { useState } from 'react'
+import Sidebar from './Sidebar';
+import Header from './Header';
+import '../../Styles/Layout.css';
+import { Outlet } from 'react-router-dom';
 
-import Header from './Header'
-import Sidebar from './Sidebar'
-import '../../Styles/Footer.css';
-
-import Footer from '../Footer';
-
-
-
-// function Layout()
 const Layout = ({ children }) => {
-  const [openSidebarToggle, setOpenSidebarToggle] = useState(false)
+  const [openSidebarToggle, setOpenSidebarToggle] = React.useState(false);
 
   const OpenSidebar = () => {
-    setOpenSidebarToggle(!openSidebarToggle)
-  }
+    setOpenSidebarToggle(!openSidebarToggle);
+  };
 
   return (
-    
-      <div className='grid-container'>
-        <Header OpenSidebar={OpenSidebar}/>
-        <div style={{ paddingTop: '30px', position: 'fixed', width:'230px'}}><Sidebar  openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/></div>
-        {/* {children} */}
-         <div style={{ paddingTop: '60px',paddingLeft:'230px', width:'1128px' }}>{children}</div>
-         
+    <div className="layout">
+      <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
+      <div className="layout-content">
+        <Header OpenSidebar={OpenSidebar} />
+        <div className="main-content">
+          <Outlet />
+        </div>
       </div>
-      
-  )
-}
+    </div>
+  );
+};
 
-export default Layout
+export default Layout;

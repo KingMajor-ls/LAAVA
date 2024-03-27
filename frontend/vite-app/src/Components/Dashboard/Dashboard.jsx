@@ -9,9 +9,7 @@ function Dashboard() {
 
   return (
     <div >
-      <Layout >
         <Charts />
-      </Layout>
     </div>
   )
 }

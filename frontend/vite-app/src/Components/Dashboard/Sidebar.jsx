@@ -28,37 +28,37 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
                 </Link>
             </li>
             <li className='sidebar-list-item'>
-                <Link to='/dashboard'>
+                <Link to="/home">
                     <span><BsGrid1X2Fill className='icon'/> Dashboard</span>
                 </Link>
             </li>
             <li className='sidebar-list-item'>
-                <Link to ="/chat">
+                <Link to ="/home/chat">
                     <span><BsChatFill className='icon'/> Enter Query</span>
                 </Link>
             </li>
             <li className='sidebar-list-item'>
-                <Link to ="/weather">
+                <Link to ="/home/weather">
                     <span><WiDayCloudy className='iconWeather'/> Weather</span>
                 </Link>
             </li>
             <li className='sidebar-list-item'>
-                <Link to="/community">
+                <Link to="/home/community">
                     <span><BsPeopleFill className='icon'/> Community</span>
                 </Link>
             </li>
             <li className='sidebar-list-item'>
-                <Link to ="/prices">
+                <Link to ="/home/cropprices">
                     <span><BsListCheck className='icon'/> Crop Prices</span>
                 </Link>
             </li>
             <li className='sidebar-list-item'>
-                <Link to ="/reports">
+                <Link to ="/home/reports">
                     <span><BsMenuButtonWideFill className='icon'/> Reports</span>
                 </Link>
             </li>
             <li className='sidebar-list-item'>
-                <Link to="/settings" className='link'>
+                <Link to="/home/settings" className='link'>
                     <span><BsFillGearFill className='icon'/> Settings</span>
                 </Link>
             </li>

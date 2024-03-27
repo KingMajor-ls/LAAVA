@@ -58,7 +58,6 @@ function Chat() {
 
   return (
     <div>
-      <Layout>
         <div className='chat-container'>
           <div className='chat-box'>
             <input type="file" accept="image/*" onChange={handleImageChange} />
@@ -83,7 +82,6 @@ function Chat() {
             </div>
           </div>
         </div>
-      </Layout>
     </div>
   );
 }

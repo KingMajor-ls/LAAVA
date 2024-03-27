@@ -59,26 +59,24 @@ function Table() {
 
 
   return (
-    <Layout>
-      <div className='dashboard'>
-        <Link to="/dashboard">
-          see charts
-        </Link>
-        <h2> Sensor Data Table</h2>
-        {humidityAndTemp.length > 0 ? (
-          <table className='data-table'>
-            <thead>
-              <tr>{renderTableHeader()}</tr>
-            </thead>
-            <tbody>{renderTableData()}</tbody>
-          </table>
-        ) : (
-          <p>Data is currently unavailable!</p>
-        )}
+    <div className='dashboard'>
+      <Link to="/dashboard">
+        see charts
+      </Link>
+      <h2> Sensor Data Table</h2>
+      {humidityAndTemp.length > 0 ? (
+        <table className='data-table'>
+          <thead>
+            <tr>{renderTableHeader()}</tr>
+          </thead>
+          <tbody>{renderTableData()}</tbody>
+        </table>
+      ) : (
+        <p>Data is currently unavailable!</p>
+      )}
 
-      </div>
-      
-    </Layout>
+    </div>
+
   );
 }
 

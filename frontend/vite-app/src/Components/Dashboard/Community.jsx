@@ -3,7 +3,6 @@ import Layout
  from "./Layout";
 const Community = () => {
   return (
-    <Layout>
       <div>
       <header>
         <h1>Community Engagement.</h1>
@@ -11,7 +10,6 @@ const Community = () => {
       </header>
     </div>
 
-    </Layout>
     
   );
 };

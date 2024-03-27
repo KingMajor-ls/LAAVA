@@ -7,7 +7,7 @@ import Footer from '../Footer';
 
 const Reports = () => {
   return (
-    <Layout>
+    
       <div>
         <header>
           <h1>See Reports analysis.</h1>
@@ -15,7 +15,6 @@ const Reports = () => {
         </header>
       </div>
    
-    </Layout>
 
   );
 };

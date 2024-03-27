@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+main {
+  flex-grow: 1;
+  padding: 1rem;
+  z-index: 1; /* Set a higher z-index than the Header and Sidebar */
+}
