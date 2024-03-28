@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -15,4 +16,15 @@ main {
   flex-grow: 1;
   padding: 1rem;
   z-index: 1; /* Set a higher z-index than the Header and Sidebar */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #064f0e;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

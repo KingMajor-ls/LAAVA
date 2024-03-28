@@ -12,9 +12,12 @@ const Layout = ({ children }) => {
 
   return (
     <div className="layout">
-      <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
+      <div className='HeaderSideBar'>
+        <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
+        <Header OpenSidebar={OpenSidebar} />F
+      </div>
+
       <div className="layout-content">
-        <Header OpenSidebar={OpenSidebar} />
         <div className="main-content">
           <Outlet />
         </div>

@@ -5,10 +5,9 @@ const CropPrices = () => {
   return (
 
     <div>
-      <header>
         <h1>See crop prices in real time.</h1>
         {/* <Search /> */}
-      </header>
+      
     </div>
 
 

@@ -6,10 +6,8 @@ import Footer from '../Footer';
 const Map = () => {
   return (
     <div>
-      <header>
         <h1>See map to analyze your terrain</h1>
         {/* <Search /> */}
-      </header>
      
     </div>
   );

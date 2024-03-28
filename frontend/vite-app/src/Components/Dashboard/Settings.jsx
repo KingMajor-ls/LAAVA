@@ -9,10 +9,8 @@ import Footer from '../Footer';
 const Settings = () => {
   return (
       <div>
-      <header>
         <h1>change settings</h1>
         {/* <Search /> */}
-      </header>
 
       </div>
      
