@@ -26,7 +26,7 @@ body {
 }
 
 .close_icon {
-  color: red;
+  color: white;
   margin-left: 30px;
   margin-top: 10px;
   cursor: pointer;
@@ -64,20 +64,30 @@ body {
 
 .menu-icon {
   display: none;
+  
 }
 
 .header-left {
+  padding-right: 200px;
   display: flex;
   align-items: center;
   
 }
-.header-right{
-  color:white;
-  display: flex;  
-  margin-left: 40px;
-  font-size: 20px;
 
-  
+
+.headerRight{
+  color:white;
+  font-size: 20px;
+  display: flex;
+  gap:20px;
+  padding-right: 60px;
+
+}
+
+.notification{
+  display: flex;
+  gap: 10px;
+
 }
 
 .search-input-container {
@@ -131,12 +141,13 @@ body {
   position: fixed; /* Fix the position */
   top: 0; /* Position from the top */
   left: 0; /* Position from the left */
-  width: 20%;
+  width: 250px;
   bottom: 0; /* Fill the height of the viewport */
 }
 
 
 .sidebar-title {
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -151,14 +162,15 @@ body {
 .sidebar-brand {
   right:10;
   font-size: 20px;
-  margin-left: 40px;
+  display: flex;
+  gap:10px;
   
  
 }
 
 .icon_header_login {
   vertical-align: middle;
-  font-size: 28px;
+  font-size: 25px;
   margin-bottom: 2px;
 }
 
@@ -186,11 +198,6 @@ body {
 .sidebar-responsive {
   display: inline !important;
   position: absolute;
-  /*
-    we want the z-index of the sidebar higher so that
-    the charts are not showing over the sidebar 
-    on small screens
-  */
   z-index: 12 !important;
 }
 

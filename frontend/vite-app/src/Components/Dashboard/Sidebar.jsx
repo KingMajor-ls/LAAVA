@@ -19,7 +19,7 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
 
         
         <div className='sidebar-title'>
-            <span className='icon close_icon' onClick={OpenSidebar}>X</span>
+            <div className='icon close_icon' onClick={OpenSidebar}> <div><h2>LAAVA</h2></div></div>
         </div>
         <ul className='sidebar-list'>
             <li className='sidebar-list-item'>

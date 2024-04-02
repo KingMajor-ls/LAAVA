@@ -4,7 +4,7 @@ import Header from './Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
-import { setUsername } from './Reducer';
+import { setUsername,setUserId } from './Reducer';
 import '../Styles/Login.css';
 import Footer from './Footer';
 import '../Styles/Footer.css';
@@ -25,7 +25,7 @@ const Login = () => {
     event.preventDefault();
   
     // Fetch request to the login endpoint
-    fetch('http://localhost:8080/login', {
+    fetch('http://localhost:8280/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -42,9 +42,11 @@ const Login = () => {
     .then(data => {
       // Store the token in localStorage
       localStorage.setItem('token', data.token);
-      console.log(data.token);
+      // console.log(data.token);
+      // console.log(data);
       // Optionally, you can store the username in Redux
       dispatch(setUsername(usernameInput));
+      dispatch(setUserId(data.user.id));
       // Navigate to the desired page after successful login
       navigate('/home');
     })

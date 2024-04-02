@@ -13,7 +13,7 @@ function Charts() {
   }, []);
 
   function getSensorData() {
-    fetch('http://localhost:8080/sensorData')
+    fetch('http://localhost:8280/sensorData')
       .then(response => response.json())
       .then(data => {
         setSensorData(data);

@@ -30,7 +30,7 @@ function Signup() {
       return;
     }
     // Submit the form data
-    fetch('http://localhost:8080/createFarmers', {
+    fetch('http://localhost:8280/createFarmers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

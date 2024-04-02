@@ -12,15 +12,14 @@ const Layout = ({ children }) => {
 
   return (
     <div className="layout">
-      <div className='HeaderSideBar'>
-        <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
-        <Header OpenSidebar={OpenSidebar} />F
-      </div>
-
+      <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
       <div className="layout-content">
-        <div className="main-content">
-          <Outlet />
-        </div>
+          <div className="header">
+             <Header OpenSidebar={OpenSidebar} />
+          </div>
+          <div className='outlet'>
+            <Outlet/>
+          </div>
       </div>
     </div>
   );

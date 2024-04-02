@@ -24,7 +24,6 @@ function Header({ OpenSidebar }) {
       <div className='menu-icon'>
         <BsJustify className='icon' onClick={OpenSidebar} />
       </div>
-      <div><h2>LAAVA</h2></div>
       <div className='header-left'>
         <input
           type="text"
@@ -34,14 +33,16 @@ function Header({ OpenSidebar }) {
         {/* Use the BsSearch component directly */}
         <BsSearch className='iconSearch' />
       </div>
-      
 
-      <div className='sidebar-brand'>
-        <BsPersonCircle className='icon_header_login' /> {User}
+      <div className='headerRight'>
+        <div className='sidebar-brand'>
+          <BsPersonCircle  /> {User}
+        </div>
+        <div className='notification'>
+          <BsFillBellFill />Notifications
+        </div>
       </div>
-      <div className='header-right'>
-        <BsFillBellFill  />Notifications
-      </div>
+
     </header>
   )
 }

@@ -7,9 +7,6 @@ import Footer from '../Footer';
 
 
 
-//   import '../Styles/Dashboard.css';
-
-
 function Table() {
   const [humidityAndTemp, setHumidityAndTemp] = useState([]);
 
@@ -18,7 +15,7 @@ function Table() {
   }, []);
 
   function getHumidityAndTemp() {
-    fetch('http://localhost:8080/sensorData')
+    fetch('http://localhost:8280/sensorData')
       .then(response => response.json())
       .then(data => {
         setHumidityAndTemp(data);

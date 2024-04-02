@@ -18,7 +18,7 @@ const Weather = () => {
 
   const fetchWeatherData = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/weather?city=${city}`);
+      const response = await fetch(`http://localhost:8280/weather?city=${city}`);
       const data = await response.json();
 
       if (response.ok) {

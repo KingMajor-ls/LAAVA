@@ -13,19 +13,20 @@ const pool = new Pool({
 async function authenticate(username, password) {
   try {
     const query = 'SELECT * FROM farmer WHERE username = $1';
-    const user = await pool.query(query, [username]);
+    const result = await pool.query(query, [username]);
 
-    if (user.rows.length === 0) {
+    if (result.rows.length === 0) {
       return null;
     }
 
-    const validPassword = await bcrypt.compare(password, user.rows[0].password);
+    const user = result.rows[0];
+    const validPassword = await bcrypt.compare(password, user.password);
 
     if (!validPassword) {
       return null;
     }
 
-    return user.rows[0];
+    return user;
   } catch (err) {
     console.error(err);
     throw err;

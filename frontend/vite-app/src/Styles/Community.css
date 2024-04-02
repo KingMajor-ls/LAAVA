@@ -1,162 +1,157 @@
 /* Community.css */
-/* Community.css */
-/* Chatbody {
-    margin: 0;
-    padding: 0;
-    background-color: #064f0e;
-    color: #fff;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-.container {
-    padding-left: 120px;
-    margin: 0;
-    background-color: #064f0e;
-    color: #fff;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
+textarea::placeholder {
+  color: white;
 }
+
+.answers form textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  resize: vertical;
+  font-size: 16px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.answer {
+  color: #064f0e;
+
+}
+
+.answers form button {
+  background-color: #fff;
+  color: #064f0e;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.answers form button:hover {
+  background-color: #e6e6e6;
+}
+
+.container {
+  padding-left: 120px;
+  background-color: #064f0e;
+  color: #fff;
+  padding-top: 15px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
 /* Rest of the CSS code remains the same */
-/* Rest of the CSS code remains the same */
-  .heading {
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  .container p {
-    font-size: 18px;
-    text-align: center;
-    margin-bottom: 40px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  }
-  
-  .question-form {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
-    max-width: 800px;
-    width: 100%;
-  }
-  
-  .question-form h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  }
-  
-  .question-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    resize: vertical;
-    font-size: 16px;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .question-form button {
-    background-color: #fff;
-    color: #064f0e;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-  }
-  
-  .question-form button:hover {
-    background-color: #e6e6e6;
-  }
-  
-  .questions {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    width: 100%;
-  }
-  
-  .questions h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  }
-  
-  .question {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .question h3 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  }
-  
-  .answers h4 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  }
-  
-  .answers p {
-    font-size: 16px;
-    margin-bottom: 10px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  }
-  
-  .answers form textarea {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    resize: vertical;
-    font-size: 16px;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .answers form button {
-    background-color: #fff;
-    color: #064f0e;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-  }
-  
-  .answers form button:hover {
-    background-color: #e6e6e6;
-  }/* Community.css */
+.heading {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.container p {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.question-form {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.question-form h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.question-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  resize: vertical;
+  font-size: 16px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.question-form button {
+  background-color: #fff;
+  color: #064f0e;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.question-form button:hover {
+  background-color: #e6e6e6;
+}
+
+.questions {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+}
+
+.questions h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.question {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.question h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.alignmentUser{
+  margin-bottom: 10px;
+}
+.like {
+  cursor: pointer;
+  padding-left: 700px;
+}
+
+
+

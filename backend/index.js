@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
-const port = 8080;
+const port = 8280;
 const jwt = require('jsonwebtoken');
 const userService = require('./models/userService');
 const { runChatModel } = require('./models/chat');
 const weather_model = require('./models/weather');
 const predict_model = require('./models/predict');
 const sensor_model = require('./models/getSensorData');
+const questionService = require('./models/questionService');
 const crypto = require('crypto');
 
 require('./models/fetchDataFromThingSpeak');
@@ -81,6 +82,8 @@ app.post('/predict', upload.single('image'), async (req, res) => {
 });
 
 // Authentication route
+// Authentication route
+// Authentication route
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
@@ -92,10 +95,40 @@ app.post('/login', async (req, res) => {
     }
 
     const token = generateToken(user);
-    res.json({ token });
+    // Check if user is not null or undefined before destructuring
+    if (user) {
+      const { password, ...userData } = user;
+      res.json({ token, user: userData });
+    } else {
+      res.status(500).json({ message: 'Internal server error' });
+    }
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Internal server error' });
+  }
+});
+// Create a new question
+app.post('/questions', async (req, res) => {
+  try {
+    const { question, userId } = req.body;
+    const newQuestion = await questionService.createQuestion(question, userId);
+    res.status(201).json(newQuestion);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Add an answer to a question
+app.post('/questions/:id/answers', async (req, res) => {
+  try {
+    const questionId = req.params.id;
+    const { answer, userId } = req.body;
+    const newAnswer = await questionService.createAnswer(answer, questionId, userId);
+    res.status(201).json(newAnswer);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
