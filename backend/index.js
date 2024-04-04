@@ -131,17 +131,34 @@ app.post('/questions/:id/answers', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+// Endpoint to like a question or answer// Endpoint to like a question
 
-// app.get('/farmers', authorize(['Admin']), async (req, res) => {
-//   try {
-//     const users = await userService.getAllUsers();
-//     res.json(users);
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ message: 'Internal server error' });
-//   }
-// });
 
+// Endpoint to like an answer to a question
+app.put('/questions/:questionId/answers/:answerId/like', async (req, res) => {
+  try {
+    const questionId = req.params.questionId;
+    const answerId = req.params.answerId;
+    const userId = req.body.userId; // Assuming you're sending the userId in the request body
+
+    // Update the like count for the answer in the database
+    const updatedAnswer = await questionService.likeAnswer(questionId, answerId, userId);
+    res.status(200).json(updatedAnswer);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.get('/questions', async (req, res) => {
+  try {
+    const questions = await questionService.getAllQuestions(); // Assuming you have a method in questionService to fetch all questions
+    res.json(questions);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 app.get('/farmers', async (req, res) => {
   try {
     const users = await userService.getAllUsers();
@@ -151,6 +168,7 @@ app.get('/farmers', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
 
 app.post('/createFarmer', async (req, res) => {
   try {

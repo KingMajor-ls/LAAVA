@@ -5,7 +5,7 @@ function runChatModel(query) {
   try {
     const scriptDirectory = path.dirname(__filename);
     process.chdir(scriptDirectory); // Set the working directory to the script's directory
-    const command = `python3 python/agriAI_assistant.py "${query}"`;
+    const command = `python python/agriAI_assistant.py "${query}"`;
     console.log('Executing command:', command);
     const output = execSync(command, { encoding: 'utf-8' });
     console.log('Script output:', output);

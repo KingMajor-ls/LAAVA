@@ -42,7 +42,7 @@ function Chat() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8080/chat", {
+      const res = await axios.post("http://localhost:8280/chat", {
         query: prediction + prompt
       });
       setResponse(res.data.answer);

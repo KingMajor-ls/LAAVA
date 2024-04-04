@@ -6,16 +6,25 @@ import { FaThumbsUp } from 'react-icons/fa';
 const Community = () => {
   const [newQuestion, setNewQuestion] = useState('');
   const [questions, setQuestions] = useState([]);
+ 
   const User = useSelector(state => state.username);
   const userId = useSelector(state => state.userId); // Assuming you have the user ID in the Redux store
+  const [currentUserId, setCurrentUserId] = useState(userId);
+  // Inside the useEffect hook for fetching questions
+  const fetchQuestions = async () => {
+    try {
+      const response = await fetch('http://localhost:8280/questions');
+      const data = await response.json();
+      setQuestions(data);
+      console.log(data)
+    } catch (error) {
+      console.error('Error fetching questions:', error);
+    }
+  };
 
   useEffect(() => {
-    // Fetch questions from the server
-    fetch('http://localhost:8280/questions')
-      .then(response => response.json())
-      .then(data => setQuestions(data))
-      .catch(error => console.error('Error fetching questions:', error));
-  }, []);
+    fetchQuestions();
+  }, []); // Fetch questions on initial mount
 
   const handleQuestionChange = (event) => {
     setNewQuestion(event.target.value);
@@ -24,8 +33,8 @@ const Community = () => {
   const handleQuestionSubmit = (event) => {
     event.preventDefault();
     console.log(1);
+    // Inside handleQuestionSubmit
     if (newQuestion.trim()) {
-      // Create a new question on the server
       fetch('http://localhost:8280/questions', {
         method: 'POST',
         headers: {
@@ -34,15 +43,15 @@ const Community = () => {
         body: JSON.stringify({ question: newQuestion.trim(), userId }),
       })
         .then(response => response.json())
-         .then(data => {
+        .then(data => {
           console.log(data);
-          setQuestions([...questions, data]);
+          setQuestions(prevQuestions => [...prevQuestions, data]); // Use the callback form
           setNewQuestion('');
-         })
+        })
         .catch(error => console.error('Error creating question:', error));
     }
-  };
 
+  };
   const handleAnswerSubmit = (questionId, newAnswer) => {
     // Create a new answer on the server
     fetch(`http://localhost:8280/questions/${questionId}/answers`, {
@@ -54,40 +63,47 @@ const Community = () => {
     })
       .then(response => response.json())
       .then(data => {
-        setQuestions(
-          questions.map(q =>
-            q.id === questionId ? { ...q, answers: [...q.answers, data] } : q
+        setQuestions(prevQuestions =>
+          prevQuestions.map(q =>
+            q.id === questionId ? { ...q, answers: [...(q.answers || []), data] } : q
           )
         );
       })
       .catch(error => console.error('Error creating answer:', error));
   };
 
-  const handleLike = (questionId, answerIndex) => {
-    // Update the like count on the server
-    const url = answerIndex === -1
-      ? `http://localhost:8280/questions/${questionId}/like`
-      : `http://localhost:8280/questions/${questionId}/answers/${answerIndex}/like`;
 
-    fetch(url, { method: 'PUT' })
-      .then(response => response.json())
-      .then(data => {
-        setQuestions(
-          questions.map(q =>
-            q.id === questionId
-              ? answerIndex === -1
-                ? { ...q, likes: data.likes }
-                : {
-                  ...q,
-                  answers: q.answers.map((answer, index) =>
-                    index === answerIndex ? { ...answer, likes: data.likes } : answer
-                  ),
-                }
-              : q
-          )
-        );
-      })
-      .catch(error => console.error('Error liking:', error));
+
+  const handleLike = async (questionId, answerId) => {
+    // Update the like count on the server
+    const url = `http://localhost:8280/questions/${questionId}/answers/${answerId}/like`;
+  
+    try {
+      const response = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userId: currentUserId }), // Use currentUserId here
+      });
+      const data = await response.json();
+  
+      setQuestions(
+        questions.map(q =>
+          q.id === questionId
+            ? {
+                ...q,
+                answers: q.answers.map(answer =>
+                  answer.id === data.id ? data : answer
+                ),
+              }
+            : q
+        )
+      );
+    } catch (error) {
+      console.error('Error liking:', error);
+      // Implement additional error handling if needed
+    }
   };
 
   return (
@@ -108,30 +124,31 @@ const Community = () => {
       </div>
       <div className="questions">
         <h2>Questions</h2>
-        {questions.map((q) => (
+        {questions && questions.length > 0 && questions.map((q) => (
           <div key={q.id} className="question">
             <h3>{q.user_id}</h3> {/* Replace with actual user name */}
             <div>
               Question: {q.question}
-              <div className='like' onClick={() => handleLike(q.id, -1)}>
-                <FaThumbsUp /> {q.likes}
-              </div>
             </div>
-          <div className="answers">
+            <div className="answers">
               <h3 className='answer'>Answers</h3>
-              {q&&q.answers.map((answer, index) => (
-                <div className='alignmentUser' key={index}>
-                  <h3>{answer.user_id}</h3> {/* Replace with actual user name */}
-                  Answer: {answer.answer}
-                  <div className='like' onClick={() => handleLike(q.id, index)}>
-                    <FaThumbsUp /> {answer.likes}
-                  </div>
-                </div>
-              ))}
+              {
+                q.answers &&
+                  q.answers.map(answer => (
+                    <div className="alignmentUser" key={answer.id}>
+                      <h3>{answer.user_id}</h3> {/* Replace with actual user name */}
+                      Answer: {answer.answer}
+                      <div className="like" onClick={() => handleLike(q.id, answer.id)}>
+                        <FaThumbsUp /> {answer.likes}
+                      </div>
+                    </div>
+                  ))
+              }
               <AnswerForm questionId={q.id} onAnswerSubmit={handleAnswerSubmit} />
             </div>
           </div>
         ))}
+
       </div>
     </div>
   );
