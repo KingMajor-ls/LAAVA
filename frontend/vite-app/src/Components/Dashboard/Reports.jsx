@@ -5,6 +5,8 @@ import '../../Styles/Reports.css';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { BarChart, Bar, XAxis, YAxis, PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
+
 
 function Reports() {
   const [productions, setProductions] = useState([]);
@@ -17,12 +19,12 @@ function Reports() {
 
   function getProductions() {
     fetch(`http://localhost:8280/productions/${userId}`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -60,10 +62,56 @@ function Reports() {
     ));
   };
 
+  const renderProductionChart = (productionType) => {
+    const data = productions.map(entry => ({
+      name: entry.quarter,
+      units: entry[`${productionType}_units`],
+    }));
+
+    return (
+      <BarChart width={500} height={300} data={data}>
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="units" fill="white" />
+
+      </BarChart>
+    );
+  }
+  function renderProductionPieChart(productionType) {
+    const data = productions.map(entry => ({
+      name: entry.quarter,
+      value: entry[`${productionType}_units`],
+    }));
+
+    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']; // Customize colors as needed
+
+    return (
+      <PieChart width={500} height={300}>
+        <Pie
+          data={data}
+          cx="50%"
+          cy="50%"
+          outerRadius={100}
+          fill="#8884d8"
+          label
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
+        <Tooltip />
+        <Legend />
+      </PieChart>
+    );
+  }
+
+
   return (
     <div className='table'>
       <div className='table-data'>
-        <h2>Production Data Table</h2>
+        <h2 className="section-title">Production Data Table</h2>
         {productions.length > 0 ? (
           <table className='data-table'>
             <thead className='headings'>
@@ -74,9 +122,46 @@ function Reports() {
         ) : (
           <p>Data is currently unavailable!</p>
         )}
+
+        <h2 className="section-title">Production Data Charts</h2>
+        <div className="grid-container">
+          {/* First Column (Bar Charts) */}
+          <div className="grid-column">
+            <div className="grid-item">
+              <h3 className="chart-title">Maize</h3>
+              {renderProductionChart('maize')}
+              <div className="axis-label">Quarterly</div>
+            </div>
+            <div className="grid-item">
+              <h3 className="chart-title">Tomato</h3>
+              {renderProductionChart('tomato')}
+              <div className="axis-label">Quarterly</div>
+            </div>
+            <div className="grid-item">
+              <h3 className="chart-title">Potato</h3>
+              {renderProductionChart('potato')}
+              <div className="axis-label">Quarterly</div>
+            </div>
+          </div>
+
+          {/* Second Column (Pie Charts) */}
+          <div className="grid-column">
+            <div className="grid-item">
+              <h3 className="chart-title">Maize</h3>
+              {renderProductionPieChart('maize')}<div className="axis-label">Quarterly</div>
+            </div>
+            <div className="grid-item">
+              <h3 className="chart-title">Tomato</h3>
+              {renderProductionPieChart('tomato')}<div className="axis-label">Quarterly</div>
+            </div>
+            <div className="grid-item">
+              <h3 className="chart-title">Potato</h3>
+              {renderProductionPieChart('potato')}<div className="axis-label">Quarterly</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
-
 export default Reports;
