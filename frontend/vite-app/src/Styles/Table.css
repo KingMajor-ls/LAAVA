@@ -1,0 +1,13 @@
+.table{
+    min-width: 100vw;
+    min-height: 100vh;
+    text-align: center;
+    color: aliceblue;
+    background-color: #011007;
+}
+.table-data{
+    width: calc(100%-300px);
+    margin-left: 300px;
+    padding-top: 60px;
+    padding-right: 30px;
+}

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from './Layout';
 import '../../Styles/Footer.css';
+import '../../Styles/Table.css';
 import Footer from '../Footer';
 
 
@@ -56,21 +57,23 @@ function Table() {
 
 
   return (
-    <div className='dashboard'>
-      <Link to="/dashboard">
-        see charts
-      </Link>
-      <h2> Sensor Data Table</h2>
-      {humidityAndTemp.length > 0 ? (
-        <table className='data-table'>
-          <thead>
-            <tr>{renderTableHeader()}</tr>
-          </thead>
-          <tbody>{renderTableData()}</tbody>
-        </table>
-      ) : (
-        <p>Data is currently unavailable!</p>
-      )}
+    <div className='table'>
+      <div className='table-data'>
+        <Link to="/home" >
+          see charts
+        </Link>
+        <h2> Sensor Data Table</h2>
+        {humidityAndTemp.length > 0 ? (
+          <table className='data-table'>
+            <thead>
+              <tr>{renderTableHeader()}</tr>
+            </thead>
+            <tbody>{renderTableData()}</tbody>
+          </table>
+        ) : (
+          <p>Data is currently unavailable!</p>
+        )}
+      </div>
 
     </div>
 

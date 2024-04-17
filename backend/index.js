@@ -8,6 +8,7 @@ const weather_model = require('./models/weather');
 const predict_model = require('./models/predict');
 const sensor_model = require('./models/getSensorData');
 const questionService = require('./models/questionService');
+const reportsService = require('./models/reportsService');
 const crypto = require('crypto');
 
 require('./models/fetchDataFromThingSpeak');
@@ -214,6 +215,32 @@ app.get('/weather', async (req, res) => {
   const weatherData = await weather_model.getWeather(city);
   res.json(weatherData);
 });
+
+
+// POST /productions
+app.post('/productions', async (req, res) => {
+  try {
+    const { userId, quarter, year, maizeUnits, tomatoUnits, potatoUnits } = req.body;
+    const production = await reportsService.insertProduction(userId, quarter, year, maizeUnits, tomatoUnits, potatoUnits);
+    res.status(201).json({ message: 'Production data inserted successfully' });
+  } catch (error) {
+    console.error('Error inserting production data:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// GET /productions/:userId
+app.get('/productions/:userId', async (req, res) => {
+  try {
+    const userId = parseInt(req.params.userId);
+    const productions = await reportsService.getProductionsByUserId(userId);
+    res.status(200).json(productions);
+  } catch (error) {
+    console.error('Error fetching production data:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);

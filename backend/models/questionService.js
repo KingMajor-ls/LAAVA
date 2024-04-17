@@ -91,7 +91,7 @@ async function likeAnswer(questionId, answerId, userId) {
     let updateQuery;
     let values;
 
-    if (existingAnswer && existingAnswer.liked_by.includes(userId)) {
+    if (existingAnswer && existingAnswer.liked_by && (Array.isArray(existingAnswer.liked_by) && existingAnswer.liked_by.includes(userId))) {
       // User has already liked the answer, so unlike it
       updateQuery = 'UPDATE answers SET likes = likes - 1, liked_by = array_remove(liked_by, $3) WHERE question_id = $1 AND id = $2';
       values = [questionId, answerId, userId];
@@ -107,6 +107,7 @@ async function likeAnswer(questionId, answerId, userId) {
     // Retrieve the updated answer
     const selectQuery = 'SELECT * FROM answers WHERE question_id = $1 AND id = $2';
     const updatedAnswer = await pool.query(selectQuery, [questionId, answerId]);
+
     return updatedAnswer.rows[0];
   } catch (error) {
     console.error(error);

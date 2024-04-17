@@ -23,7 +23,7 @@ function Charts() {
 
   return (
     <div className='chartT'>
-       <Link to="/Table">
+       <Link to="table">
             See table
             </Link>
       <h2>Sensor Data Charts</h2>
