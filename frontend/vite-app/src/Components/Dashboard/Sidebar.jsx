@@ -37,7 +37,7 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
                     <span><BsChatFill className='icon'/> Enter Query</span>
                 </Link>
             </li>
-            <li className='sidebar-list-item'>
+            <li className='sidebar-list-item' >
                 <Link to ="/home/weather">
                     <span><WiDayCloudy className='iconWeather'/> Weather</span>
                 </Link>
@@ -48,8 +48,8 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
                 </Link>
             </li>
             <li className='sidebar-list-item'>
-                <Link to ="/home/cropprices">
-                    <span><BsListCheck className='icon'/> Crop Prices</span>
+                <Link to ="/home/Enter-data">
+                    <span><BsListCheck className='icon'/>Data Management</span>
                 </Link>
             </li>
             <li className='sidebar-list-item'>

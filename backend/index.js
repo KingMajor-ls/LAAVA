@@ -222,7 +222,7 @@ app.post('/productions', async (req, res) => {
   try {
     const { userId, quarter, year, maizeUnits, tomatoUnits, potatoUnits } = req.body;
     const production = await reportsService.insertProduction(userId, quarter, year, maizeUnits, tomatoUnits, potatoUnits);
-    res.status(201).json({ message: 'Production data inserted successfully' });
+    res.status(201).json({ message: 'Production data inserted successfully' ,production});
   } catch (error) {
     console.error('Error inserting production data:', error);
     res.status(500).json({ error: 'Internal Server Error' });

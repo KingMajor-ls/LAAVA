@@ -40,6 +40,17 @@ function Reports() {
       });
   }
 
+  const groupDataByYear = (data) => {
+    return data.reduce((acc, curr) => {
+      const year = curr.year;
+      if (!acc[year]) {
+        acc[year] = [];
+      }
+      acc[year].push(curr);
+      return acc;
+    }, {});
+  };
+
   const renderTableHeader = () => {
     if (productions.length === 0) return null;
 
@@ -62,8 +73,8 @@ function Reports() {
     ));
   };
 
-  const renderProductionChart = (productionType) => {
-    const data = productions.map(entry => ({
+  const renderProductionChart = (productionType,yearData) => {
+    const data = yearData.map(entry => ({
       name: entry.quarter,
       units: entry[`${productionType}_units`],
     }));
@@ -79,12 +90,11 @@ function Reports() {
       </BarChart>
     );
   }
-  function renderProductionPieChart(productionType) {
-    const data = productions.map(entry => ({
+  function renderProductionPieChart(productionType,yearData) {
+    const data = yearData.map(entry => ({
       name: entry.quarter,
       value: entry[`${productionType}_units`],
     }));
-
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']; // Customize colors as needed
 
     return (
@@ -124,42 +134,51 @@ function Reports() {
         )}
 
         <h2 className="section-title">Production Data Charts</h2>
-        <div className="grid-container">
-          {/* First Column (Bar Charts) */}
-          <div className="grid-column">
-            <div className="grid-item">
-              <h3 className="chart-title">Maize</h3>
-              {renderProductionChart('maize')}
-              <div className="axis-label">Quarterly</div>
+         {/* Render sections for each year */}
+      {Object.entries(groupDataByYear(productions)).map(([year, yearData]) => (
+        <div key={year} className="year-section">
+          <h2 className="year-title">{year}</h2>
+          <div className="grid-container">
+            {/* First Column (Bar Charts) */}
+            <div className="grid-column">
+              <div className="grid-item">
+                <h3 className="chart-title">Maize</h3>
+                {renderProductionChart('maize', yearData)}
+                <div className="axis-label">Quarterly</div>
+              </div>
+              <div className="grid-item">
+                <h3 className="chart-title">Tomato</h3>
+                {renderProductionChart('tomato', yearData)}
+                <div className="axis-label">Quarterly</div>
+              </div>
+              <div className="grid-item">
+                <h3 className="chart-title">Potato</h3>
+                {renderProductionChart('potato', yearData)}
+                <div className="axis-label">Quarterly</div>
+              </div>
             </div>
-            <div className="grid-item">
-              <h3 className="chart-title">Tomato</h3>
-              {renderProductionChart('tomato')}
-              <div className="axis-label">Quarterly</div>
-            </div>
-            <div className="grid-item">
-              <h3 className="chart-title">Potato</h3>
-              {renderProductionChart('potato')}
-              <div className="axis-label">Quarterly</div>
-            </div>
-          </div>
 
-          {/* Second Column (Pie Charts) */}
-          <div className="grid-column">
-            <div className="grid-item">
-              <h3 className="chart-title">Maize</h3>
-              {renderProductionPieChart('maize')}<div className="axis-label">Quarterly</div>
-            </div>
-            <div className="grid-item">
-              <h3 className="chart-title">Tomato</h3>
-              {renderProductionPieChart('tomato')}<div className="axis-label">Quarterly</div>
-            </div>
-            <div className="grid-item">
-              <h3 className="chart-title">Potato</h3>
-              {renderProductionPieChart('potato')}<div className="axis-label">Quarterly</div>
+            {/* Second Column (Pie Charts) */}
+            <div className="grid-column">
+              <div className="grid-item">
+                <h3 className="chart-title">Maize</h3>
+                {renderProductionPieChart('maize', yearData)}
+                <div className="axis-label">Quarterly</div>
+              </div>
+              <div className="grid-item">
+                <h3 className="chart-title">Tomato</h3>
+                {renderProductionPieChart('tomato', yearData)}
+                <div className="axis-label">Quarterly</div>
+              </div>
+              <div className="grid-item">
+                <h3 className="chart-title">Potato</h3>
+                {renderProductionPieChart('potato', yearData)}
+                <div className="axis-label">Quarterly</div>
+              </div>
             </div>
           </div>
         </div>
+      ))}
       </div>
     </div>
   );
