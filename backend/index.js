@@ -241,7 +241,42 @@ app.get('/productions/:userId', async (req, res) => {
   }
 });
 
+// GET /farmers/:userId
+app.get('/farmers/:userId', async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const farmer = await userService.getFarmerByUserId(userId);
 
+    if (!farmer) {
+      return res.status(404).json({ error: 'Farmer not found' });
+    }
+
+    res.json(farmer);
+  } catch (error) {
+    console.error('Error fetching farmer:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+app.put('/farmers/:userId', async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const updatedData = req.body;
+
+    const updatedFarmer = await userService.updateFarmer(userId, updatedData);
+
+    if (!updatedFarmer) {
+      return res.status(404).json({ error: 'Farmer not found' });
+    }
+
+    res.json(updatedFarmer);
+  } catch (error) {
+    console.error('Error updating farmer:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
+

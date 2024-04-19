@@ -102,6 +102,8 @@
 .weatherBody {
   font-family: 'Arial', sans-serif;
   background-color: #011007;
+  background: linear-gradient(135deg, #011007, #064f0e);
+
   margin: 20px;
   width: 100vw;
   text-align: center;
@@ -175,6 +177,8 @@ p {
   width: 100%;
   min-height: 100vh;
   background-color: #011007;
+  background: linear-gradient(135deg, #011007, #064f0e);
+
   padding-top: 50px;
   padding-left: 20px;
   text-align: center;

@@ -5,6 +5,8 @@
     text-align: center;
     color: aliceblue;
     background-color: #011007;
+    background: linear-gradient(135deg, #011007, #064f0e);
+
     padding-bottom: 100vh;
     box-sizing: border-box;
     overflow-y: auto;

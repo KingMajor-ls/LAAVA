@@ -59,12 +59,12 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
             </li>
             <li className='sidebar-list-item'>
                 <Link to="/home/settings" className='link'>
-                    <span><BsFillGearFill className='icon'/> Settings</span>
+                    <span><BsFillGearFill className='icon'/>Account Settings</span>
                 </Link>
             </li>
             <li className='sidebar-list-item'>
                 <Link to="../login"> 
-                    <span><BsPersonCircle className='icon_'/> Logout</span>
+                    <span><BsPersonCircle className='icon_'/> Log-out</span>
                 </Link>
             </li>
         </ul>

@@ -6,6 +6,8 @@
   padding: 20px;
   /* background-color: #f4f4f4; */
   background-color: none;
+  background: linear-gradient(135deg, #011007, #064f0e);
+
   height: 70vh;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

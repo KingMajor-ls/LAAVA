@@ -73,9 +73,79 @@ async function createFarmer(farmerData) {
     throw error;
   }
 }
+async function getFarmerByUserId(userId) {
+  try {
+    const query = `
+      SELECT id, name, surname, home_address, username, email, phone_number, password, role
+      FROM farmer
+      WHERE id = $1
+    `;
+    const result = await pool.query(query, [userId]);
+    return result.rows[0];
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+}
+
+async function updateFarmer(userId, updatedData) {
+  try {
+    const { name, surname, homeAddress, username, email, phoneNumber, password, role } = updatedData;
+
+    // Hash the new password if it's provided
+    const hashedPassword = password ? await bcrypt.hash(password, 10) : null;
+
+    // Build the query dynamically based on the provided fields
+    const setClause = [];
+    const values = [];
+
+    if (name) {
+      setClause.push('name = $' + values.push(name));
+    }
+    if (surname) {
+      setClause.push('surname = $' + values.push(surname));
+    }
+    if (homeAddress) {
+      setClause.push('home_address = $' + values.push(homeAddress));
+    }
+    if (username) {
+      setClause.push('username = $' + values.push(username));
+    }
+    if (email) {
+      setClause.push('email = $' + values.push(email));
+    }
+    if (phoneNumber) {
+      setClause.push('phone_number = $' + values.push(phoneNumber));
+    }
+    if (hashedPassword) {
+      setClause.push('password = $' + values.push(hashedPassword));
+    }
+    if (role) {
+      setClause.push('role = $' + values.push(role));
+    }
+
+    // Execute the UPDATE query
+    const query = `
+      UPDATE farmer
+      SET ${setClause.join(', ')}
+      WHERE id = $${values.push(userId)}
+      RETURNING *
+    `;
+
+    const result = await pool.query(query, values);
+    return result.rows[0];
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+}
+
 
 module.exports = {
   authenticate,
   getAllUsers,
   createFarmer,
+  getFarmerByUserId,
+  updateFarmer, // Add this line
+
 };
