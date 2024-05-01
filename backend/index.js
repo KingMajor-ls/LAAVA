@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 8280;
+const fs = require('fs');
 const jwt = require('jsonwebtoken');
 const userService = require('./models/userService');
 const { runChatModel } = require('./models/chat');
@@ -10,12 +11,23 @@ const sensor_model = require('./models/getSensorData');
 const questionService = require('./models/questionService');
 const reportsService = require('./models/reportsService');
 const crypto = require('crypto');
+const postService = require('./models/postService'); // Import the postService module
+const multer = require('multer');
+const path = require('path'); // Add this line to require the path module
+
 
 require('./models/fetchDataFromThingSpeak');
-
-const multer = require('multer');
-const upload = multer({ dest: 'uploads/' }); // Set the destination folder for uploaded images
-
+// const upload = multer({ dest: 'uploads/' }); // Set the destination folder for uploaded images
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}-${file.originalname}`);
+  },
+});
+const upload = multer({ storage });
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // Secret key for JWT
 const secretKey = crypto.randomBytes(32).toString('hex'); // 32 bytes = 256 bits
 console.log(secretKey);
@@ -273,6 +285,62 @@ app.put('/farmers/:userId', async (req, res) => {
     res.json(updatedFarmer);
   } catch (error) {
     console.error('Error updating farmer:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+// Route to create a new post
+app.post('/api/posts', upload.single('image'), async (req, res) => {
+  const { text, userId } = req.body;
+  const image = req.file ? req.file.filename : null;
+
+  try {
+    const newPost = await postService.createPost({ text, userId, image });
+    res.json(newPost);
+  } catch (error) {
+    console.error('Error creating post:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+// Route to like a post
+app.post('/api/posts/:postId/likes', async (req, res) => {
+  const { postId } = req.params;
+  const { userId } = req.body;
+
+  try {
+    const likedPost = await postService.likePost(postId, userId);
+    res.json(likedPost);
+  } catch (error) {
+    console.error('Error liking post:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// Route to comment on a post
+app.post('/api/posts/:postId/comments', async (req, res) => {
+  const { postId } = req.params;
+  const { userId, text } = req.body;
+
+  try {
+    const commentedPost = await postService.commentOnPost(postId, userId, text);
+    res.json(commentedPost);
+  } catch (error) {
+    console.error('Error commenting on post:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// Add a new route to fetch all posts
+app.get('/api/posts', async (req, res) => {
+  try {
+    console.log('GET request received for /api/posts');
+    const posts = await postService.getPosts(); // Fetch all posts using the postService
+    res.json(posts);
+  } catch (error) {
+    console.error('Error fetching posts:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
