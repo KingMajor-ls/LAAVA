@@ -1,88 +1,85 @@
-/**
- * TODO(developer): Uncomment these variables before running the sample.\
- * (Not necessary if passing values as arguments)
- */
-
-// const filename = "./image.jpg";
 
 // const path = require('path');
-// const filename = path.join(__dirname, 'image.jpg');
+// const { execSync } = require('child_process');
+
+// function predictImageObjectDetection(imagePath) {
+//   try {
+//     const scriptDirectory = path.dirname(__filename);
+//     process.chdir(scriptDirectory); // Set the working directory to the script's directory
+//     const command = `python3 python/predictDisease.py "${imagePath}"`; // Use the image path as an argument
+//     console.log('Executing command:', command);
+//     const output = execSync(command, { encoding: 'utf-8' });
+//     console.log('Script output:', output);
+//     return output.trim();
+//   } catch (error) {
+//     console.error('Error:', error.stderr);
+//     return 'Error occurred';
+//   }
+// }
 
 
+// function predictImage(imagePath) {
+//   try {
+//     const scriptDirectory = path.dirname(__filename);
+//     process.chdir(scriptDirectory); // Set the working directory to the script's directory
+//     const command = `python3 python/predictSoil.py "${imagePath}"`; // Use the image path as an argument
+//     console.log('Executing command:', command);
+//     const output = execSync(command, { encoding: 'utf-8' });
+//     console.log('Script output:', output);
+//     return output.trim();
+//   } catch (error) {
+//     console.error('Error:', error.stderr);
+//     return 'Error occurred';
+//   }
+// }
 
-const endpointId = "2556331549230366720";
-const project = 'sustained-path-412608';
-const location = 'us-central1';
-const aiplatform = require('@google-cloud/aiplatform');
-const {instance, params, prediction} = aiplatform.protos.google.cloud.aiplatform.v1.schema.predict;
+// module.exports = { predictImageObjectDetection, predictImage };
 
-// Imports the Google Cloud Prediction Service Client library
-const {PredictionServiceClient} = aiplatform.v1;
+const path = require('path');
+const { execSync } = require('child_process');
 
-// Specifies the location of the api endpoint
-const clientOptions = {
-  apiEndpoint: 'us-central1-aiplatform.googleapis.com',
-};
+function predictImageObjectDetection(imagePath) {
+  try {
+    const scriptDirectory = path.dirname(__filename);
+    process.chdir(scriptDirectory); // Set the working directory to the script's directory
+    const command = `python3 python/predictDisease.py "${imagePath}"`; // Use the image path as an argument
+    console.log('Executing command:', command);
+    const output = execSync(command, { encoding: 'utf-8' });
+    console.log('Script output:', output);
+    // return output.trim();
+    const lines = output.trim().split('\n');
+    // Get the last line, which contains the predicted label
+    const predictedLabel = lines[lines.length - 1].split(': ')[1].trim();
 
-// Instantiates a client
-const predictionServiceClient = new PredictionServiceClient(clientOptions);
-
-async function predictImageObjectDetection(imagePath) {
-  // Configure the endpoint resource
-  const endpoint = `projects/${project}/locations/${location}/endpoints/${endpointId}`;
-
-  const parametersObj = new params.ImageObjectDetectionPredictionParams({
-    confidenceThreshold: 0.5,
-    maxPredictions: 5,
-  });
-  const parameters = parametersObj.toValue();
-
-  const fs = require('fs');
-  const image = fs.readFileSync(imagePath, 'base64');
-  const instanceObj = new instance.ImageObjectDetectionPredictionInstance({
-    content: image,
-  });
-
-  const instanceVal = instanceObj.toValue();
-  const instances = [instanceVal];
-  const request = {
-    endpoint,
-    instances,
-    parameters,
-  };
-
-  // Predict request
-  const [response] = await predictionServiceClient.predict(request);
-
-  console.log('Predict image object detection response');
-  console.log(`\tDeployed model id : ${response.deployedModelId}`);
-  const Array = [];
-  const predictions = response.predictions;
-  console.log('Predictions :');
-  for (const predictionResultVal of predictions) {
-    const predictionResultObj =
-      prediction.ImageObjectDetectionPredictionResult.fromValue(
-        predictionResultVal
-      );
+    return predictedLabel;
     
-    for (const [i, label] of predictionResultObj.displayNames.entries()) {
-      console.log(`\tDisplay name: ${label}`);
-      console.log(`\tConfidences: ${predictionResultObj.confidences[i]}`);
-      console.log(`\tIDs: ${predictionResultObj.ids[i]}`);
-      console.log(`\tBounding boxes: ${predictionResultObj.bboxes[i]}\n\n`);
-
-       const predictionInfo = {
-        displayName: label,
-        confidence: predictionResultObj.confidences[i],
-        id: predictionResultObj.ids[i],
-        boundingBox: predictionResultObj.bboxes[i],
-      };
-      Array.push(predictionInfo);
-    }
+  } catch (error) {
+    console.error('Error:', error.stderr);
+    return 'Error occurred';
   }
-  return Array;
 }
-module.exports = { predictImageObjectDetection };
 
+function predictImage(imagePath) {
+  try {
+    const scriptDirectory = path.dirname(__filename);
+    process.chdir(scriptDirectory); // Set the working directory to the script's directory
+    const command = `python3 python/predictSoil.py "${imagePath}"`; // Use the image path as an argument
+    console.log('Executing command:', command);
+    const output = execSync(command, { encoding: 'utf-8' });
+    console.log('Script output:', output);
+    
+    // Split the output by new lines
+    const lines = output.trim().split('\n');
+    // Get the last line, which contains the predicted label
+    const predictedLabel = lines[lines.length - 1].split(': ')[1].trim();
+
+    return predictedLabel;
+  } catch (error) {
+    console.error('Error:', error.stderr);
+    return 'Error occurred';
+  }
+}
+
+module.exports = { predictImageObjectDetection, predictImage };
 
 

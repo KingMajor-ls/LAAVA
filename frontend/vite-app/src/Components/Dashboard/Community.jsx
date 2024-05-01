@@ -1,4 +1,4 @@
-import '../../styles/Community.css';
+import '../../Styles/Community.css';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { FaThumbsUp } from 'react-icons/fa';

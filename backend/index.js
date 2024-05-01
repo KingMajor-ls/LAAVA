@@ -5,11 +5,15 @@ const jwt = require('jsonwebtoken');
 const userService = require('./models/userService');
 const { runChatModel } = require('./models/chat');
 const weather_model = require('./models/weather');
-const predict_model = require('./models/predict');
+// const predict_model = require('./models/predict');
 const sensor_model = require('./models/getSensorData');
 const questionService = require('./models/questionService');
 const reportsService = require('./models/reportsService');
 const crypto = require('crypto');
+
+const { predictImageObjectDetection } = require('./models/predict');
+const { predictImage } = require('./models/predict');
+
 
 require('./models/fetchDataFromThingSpeak');
 
@@ -65,22 +69,61 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.post('/predict', upload.single('image'), async (req, res) => {
+// app.post('/predict', upload.single('image'), async (req, res) => {
+//   try {
+//     if (!req.file) {
+//       return res.status(400).json({ error: 'No file uploaded.' });
+//     }
+
+//     const imagePath = req.file.path;
+//     const predictions = await predict_model.predictImageObjectDetection(imagePath);
+
+//     // return predictions in response
+//     res.status(200).json({ predictions });
+//   } catch (error) {
+//     console.error('Error processing image:', error);
+//     res.status(500).json({ error: 'Internal server error.' });
+//   }
+// });
+
+
+
+// Handle image upload and prediction
+app.post('/predictDisease', upload.single('image'), async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: 'No file uploaded.' });
     }
 
-    const imagePath = req.file.path;
-    const predictions = await predict_model.predictImageObjectDetection(imagePath);
+    const imagePath = req.file.path; // Get the path of the uploaded image
+    const predictions = await predictImageObjectDetection(imagePath);
 
-    // return predictions in response
+    // Return predictions in response
     res.status(200).json({ predictions });
   } catch (error) {
     console.error('Error processing image:', error);
     res.status(500).json({ error: 'Internal server error.' });
   }
 });
+
+app.post('/predictSoil', upload.single('image'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'No file uploaded.' });
+    }
+
+    const imagePath = req.file.path; // Get the path of the uploaded image
+    const predictions = await predictImage(imagePath);
+
+    // Return predictions in response
+    res.status(200).json({ predictions });
+  } catch (error) {
+    console.error('Error processing image:', error);
+    res.status(500).json({ error: 'Internal server error.' });
+  }
+});
+
+
 
 // Authentication route
 // Authentication route
