@@ -152,7 +152,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px 0px 30px;
-  margin-bottom: 30px;
+  margin-top: 0px;
+  height: 45px;
 }
 
 .sidebar-title > span {
@@ -184,6 +185,7 @@ body {
 .sidebar-list-item {
   padding: 20px 20px 20px 20px;
   font-size: 18px;
+  height: 22px;
 }
 
 .sidebar-list-item:hover {
@@ -200,6 +202,11 @@ body {
   display: inline !important;
   position: absolute;
   z-index: 12 !important;
+}
+
+.sidebar-list-item.active {
+    background-color: #15a2c933; 
+    border-left: 5px solid #15a2c995; 
 }
 
 /* End Sidebar  */
@@ -314,6 +321,147 @@ body {
 }
 
 /* End Main  */
+
+
+/*Begin Notification*/
+
+.notification-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+    /* overflow: hidden; */
+
+    /* background-image: url('agricultural-background.jpg'); */
+    background-color: #03450d;
+    background-size: cover;
+    margin-top: 40px;
+    margin-left: 230px;
+    /* position: fixed; */
+    width: 84%;
+}
+
+.notification-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    /* border-right: 2px solid #ccc; */
+    position: relative;
+    margin-top: 40px;
+    color:#0c0e0c;
+    
+}
+
+.crop-prices {
+    width: 300px;
+    padding: 20px;
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+    background-color: #058818;
+    border-left: 2px solid #058818;
+    height: 1000px;
+}
+
+.notification-item {
+    padding: 10px;
+    background-color: #a5e9b7;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    animation: fadeIn 0.5s ease;
+    margin-left: 10px;
+   
+}
+
+/* @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+} */
+
+.notification-list h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    position: sticky;
+    top: 0;
+    background-color: #3f7547;
+    padding: 10px 0;
+    z-index: 1;
+    position: fixed;
+    height: 30px;
+    /* width: 760px; */
+    width: 55%;
+    /* margin-left: 100px; */
+    margin-top: 80px;
+    /* margin-left: 10px; */
+    border-radius: 10px;
+}
+
+.crop-prices h2{
+  text-align: center;
+    font-size: 1.5rem;
+    position: sticky;
+    top: 0;
+    background-color: #12c02c;
+    padding: 10px 0;
+    z-index: 1;
+    position: fixed;
+    height: 30px;
+    width: 370px;
+    /* margin-left: 100px; */
+    margin-top: 80px;
+    margin-left: -23px;
+    border-radius: 10px;
+
+}
+
+
+.price-list {
+    /* margin: 20px auto; */
+    margin-top: 40px;
+    width: 23%;
+    position: fixed;
+
+}
+
+.price-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.price-list th, .price-list td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.price-list th {
+    background-color: #064806;
+}
+
+.price-list tr:nth-child(even) {
+    background-color: #155d30;
+}
+
+.price-list tr:hover {
+    background-color: #51de6d;
+}
+
+.price-list table td {
+    font-size: 18px;
+    color: white;
+}
+
+.price-list h3 {
+    margin: 10px 0;
+}
+
+
+
+/*End Notifications*/
 
 
 /* Medium <= 992px */

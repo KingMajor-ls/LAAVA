@@ -16,6 +16,7 @@ import Feeds from './Components/Dashboard/Feeds';
 import Table from './Components/Dashboard/Table';
 import Layout from './Components/Dashboard/Layout';
 import ErrorBoundary from './Components/Dashboard/ErrorBoundary';
+import NotificationTab from './Components/Dashboard/Notifications';
 
 function App() {
 
@@ -26,19 +27,21 @@ function App() {
           <Route path="/" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          {/* <Route path="/home" element={<Layout />}> */}
           <Route path="/home" element={<Layout />}>
-            <Route index element={<Feeds />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="chat" element={<Chat />} />
-            <Route path="weather" element={<Weather />} />
-            <Route path="settings" element={<Settings />} />
-            <Route path="map" element={<Map />} />
-            <Route path="predict" element={<Predict />} />
-            <Route path="Enter-data" element={<MyData />} />
-            <Route path="reports" element={<Reports />} />
-            <Route path="community" element={<Community />} />
-            <Route path="feeds" element={<Feeds />} />
-            <Route path="table" element={<Table />} />
+          <Route index element={<Feeds />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="chat" element={<Chat />} />
+          <Route path="weather" element={<Weather />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="map" element={<Map />} />
+          <Route path="predict" element={<Predict />} />
+          <Route path="Enter-data" element={<MyData />} />
+          <Route path="reports" element={<Reports />} />
+          <Route path="community" element={<Community />} />
+          <Route path="feeds" element={<Feeds />} />
+          <Route path="table" element={<Table />} />
+          <Route path="notifications" element={<NotificationTab/>}/>
           </Route>
         </Routes>
     </Router>

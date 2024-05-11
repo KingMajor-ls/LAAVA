@@ -59,7 +59,7 @@ function Table() {
   return (
     <div className='table'>
       <div className='table-data'>
-        <Link to="/home" >
+        <Link to="../dashboard" >
           see charts
         </Link>
         <h2> Sensor Data Table</h2>

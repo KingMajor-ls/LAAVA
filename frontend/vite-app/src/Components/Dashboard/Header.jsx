@@ -39,7 +39,14 @@ function Header({ OpenSidebar }) {
           <BsPersonCircle  /> {User}
         </div>
         <div className='notification'>
-          <BsFillBellFill />Notifications
+          <Link to="/home/notifications">
+          <span ><BsFillBellFill />  </span>
+          
+          </Link>
+
+           {/* <Link to="/home/community">
+                    <span><BsPeopleFill className='icon'/> Community</span>
+                 </Link> */}
         </div>
       </div>
 
