@@ -1,0 +1,74 @@
+.table{
+    
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    color: aliceblue;
+    background-color: #011007;
+    background: linear-gradient(135deg, #011007, #064f0e);
+
+    padding-bottom: 100vh; /* Add padding to fill the remaining height */
+    box-sizing: border-box; /* Ensure padding is included in height calculation */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds viewport */
+}
+
+
+.table-data{
+    width: calc(100%-300px);
+    margin-left: 300px;
+    padding-top: 60px;
+    padding-right: 30px;
+}
+
+.headings{
+    color :black;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto; /* Two columns */
+    grid-gap: 100px; /* Gap between grid items */
+    
+  }
+  .grid-column{
+    gap: 10px;
+  }
+  
+  
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  
+  .grid-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    height: 400px;
+  }
+  
+  .chart-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .axis-label {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+  }
+  .year-section {
+    margin-bottom: 500px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .year-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }

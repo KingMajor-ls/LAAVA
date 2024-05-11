@@ -1,0 +1,12 @@
+.footer {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    gap: 40px; /* Space between elements */
+    width: 100%;
+    height: 6vh;
+    background-color: #012707;
+    font-size: 15px;
+    color: white;
+    border-radius: 5px;
+}
