@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { useState ,useEffect} from "react";
+=======
+import { useState } from "react";
+>>>>>>> f81730a2b63c02735b5737425c937e87ab16f566
 import { Link, useNavigate } from 'react-router-dom';
 import Header from './Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,6 +13,7 @@ import '../Styles/Login.css';
 import Footer from './Footer';
 import '../Styles/Footer.css';
 
+<<<<<<< HEAD
 
 import image3 from '../assets/image3.jpg';
 import image4 from '../assets/image4.jpg';
@@ -16,11 +21,15 @@ import image4 from '../assets/image4.jpg';
 const Login = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const images = [image3,image4]; // Array of your images
+=======
+const Login = () => {
+>>>>>>> f81730a2b63c02735b5737425c937e87ab16f566
   const [usernameInput, setUsernameInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+<<<<<<< HEAD
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -29,6 +38,8 @@ const Login = () => {
     return () => clearInterval(interval); // Clean up the interval on component unmount
   }, [images.length]);
 
+=======
+>>>>>>> f81730a2b63c02735b5737425c937e87ab16f566
   // handle password visibility
   const [passwordVisible, setPasswordVisible] = useState(false);
   const togglePasswordVisibility = () => {
@@ -73,7 +84,11 @@ const Login = () => {
   
 
   return (
+<<<<<<< HEAD
     <div style={{ backgroundImage: `url(${images[currentImageIndex]})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+=======
+    <div>
+>>>>>>> f81730a2b63c02735b5737425c937e87ab16f566
       <div>
         <Header />
       </div>
