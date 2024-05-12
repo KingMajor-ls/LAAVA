@@ -5,17 +5,17 @@ import "../Styles/About.css"
 import Footer from './Footer';
 
 // Import your images
-
 import image3 from '../assets/image3.jpg';
 import image4 from '../assets/image4.jpg';
 
-
 function About() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = [image3,image4]; // Array of your images
+  const images = [image3, image4]; // Array of your images
+
+  const navigate = useNavigate();
 
   const handleLoginClick = () => {
-    navigator('/');
+    navigate('/');
   };
 
   useEffect(() => {
@@ -32,8 +32,10 @@ function About() {
         <Header />
       </div>
       <div className='about'>
-        <h4 className='openStatment'>
-          Welcome to Lesotho Al Agricultural Virtual Assistant, your ultimate companion in revolutionizing farming practices. Harnessing the power of machine learning and cutting-edge Al technology, our system is tailored to elevate farmers' efficiency and amplify crop yields.
+        <h4 className='openStatment'>Welcome to Lesotho Al Agricultural Virtual Assistant,
+          your ultimate companion in revolutionizing farming practices.
+          Harnessing the power of machine learning and cutting-edge AI technology,
+          our system is tailored to elevate farmers' efficiency and amplify crop yields.
         </h4>
         <div className='links'>
           <div className='loginLink'>
@@ -49,7 +51,7 @@ function About() {
         <Footer />
       </div>
     </div>
-  )
+  );
 }
 
 export default About;

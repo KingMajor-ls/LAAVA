@@ -13,3 +13,22 @@
     padding-top: 60px;
     padding-right: 30px;
 }
+
+@media (max-width: 768px) {
+    .table {
+      min-width: 100%;
+      min-height: auto;
+    }
+  
+    .table-data {
+      width: 100%;
+      margin-left: 0;
+      padding: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .table-data {
+      padding: 10px;
+    }
+  }

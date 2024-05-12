@@ -54,3 +54,47 @@
 .outlet {
   padding-top: 20px;
 }
+
+/* For screens smaller than 768px */
+@media (max-width: 767px) {
+  .sidebar {
+    width: 200px;
+    transform: translateX(-200px);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar.closed {
+    transform: translateX(-200px);
+  }
+
+  .header {
+    width: calc(100% - 200px);
+  }
+}
+
+/* For screens smaller than 480px */
+@media (max-width: 479px) {
+  .sidebar {
+    width: 150px;
+    transform: translateX(-150px);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar.closed {
+    transform: translateX(-150px);
+  }
+
+  .header {
+    width: calc(100% - 150px);
+  }
+
+  .layout-content {
+    padding: 0.5rem;
+  }
+}

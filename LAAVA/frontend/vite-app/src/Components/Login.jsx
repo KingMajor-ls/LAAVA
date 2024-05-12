@@ -1,3 +1,4 @@
+
 import { useState ,useEffect} from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import Header from './Header';
@@ -95,9 +96,7 @@ const Login = () => {
                 value={passwordInput}
                 onChange={(e) => setPasswordInput(e.target.value)}
               />
-              <button className='buttonToggle' type="button" onClick={togglePasswordVisibility}>
-                <FontAwesomeIcon icon={passwordVisible ? faEye : faEyeSlash} />
-              </button>
+              
             </div>
             <div className="homepage">
               <button type="submit" className="btn1"> Login </button>

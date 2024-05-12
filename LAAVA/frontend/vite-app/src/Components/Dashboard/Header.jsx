@@ -41,12 +41,7 @@ function Header({ OpenSidebar }) {
         <div className='notification'>
           <Link to="/home/notifications">
           <span ><BsFillBellFill />  </span>
-          
           </Link>
-
-           {/* <Link to="/home/community">
-                    <span><BsPeopleFill className='icon'/> Community</span>
-                 </Link> */}
         </div>
       </div>
 

@@ -115,3 +115,122 @@
 .input-area button:hover {
   background-color: #07710f;
 }
+
+@media (max-width: 768px) {
+  .container {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .heading {
+    font-size: 20px;
+    padding: 15px;
+  }
+
+  .container p {
+    margin: 15px 0;
+    font-size: 14px;
+  }
+
+  .chatbox {
+    padding: 15px;
+  }
+
+  .question {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .question h4 {
+    font-size: 14px;
+  }
+
+  .question-text {
+    font-size: 13px;
+  }
+
+  .answers h4 {
+    font-size: 14px;
+    margin-top: 15px;
+    margin-bottom: 8px;
+  }
+
+  .answer h5 {
+    font-size: 13px;
+  }
+
+  .answer p {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .input-area {
+    padding: 15px;
+  }
+
+  .input-area textarea {
+    font-size: 13px;
+  }
+
+  .input-area button {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  .container p {
+    margin: 12px 0;
+    font-size: 13px;
+  }
+
+  .chatbox {
+    padding: 12px;
+  }
+
+  .question {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .question h4 {
+    font-size: 13px;
+  }
+
+  .question-text {
+    font-size: 12px;
+  }
+
+  .answers h4 {
+    font-size: 13px;
+    margin-top: 12px;
+    margin-bottom: 6px;
+  }
+
+  .answer h5 {
+    font-size: 12px;
+  }
+
+  .answer p {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .input-area {
+    padding: 12px;
+  }
+
+  .input-area textarea {
+    font-size: 12px;
+  }
+
+  .input-area button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}

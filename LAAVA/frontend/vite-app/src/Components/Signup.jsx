@@ -1,4 +1,4 @@
-import  { useState,useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import Header from './Header';
 import { Link, useNavigate } from 'react-router-dom';
 import '../Styles/Signup.css';
@@ -9,7 +9,8 @@ import image4 from '../assets/image4.jpg';
 
 function Signup() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = [image3,image4]; // Array of your images
+  const images = [image3, image4]; // Array of your images
+
   const [surname, setSurname] = useState('');
   const [name, setFirstName] = useState('');
   const [username, setUserName] = useState('');
@@ -18,6 +19,7 @@ function Signup() {
   const [home_address, setHomeAdress] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -67,10 +69,9 @@ function Signup() {
   };
 
   return (
-    <div  style={{ backgroundImage: `url(${images[currentImageIndex]})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div style={{ backgroundImage: `url(${images[currentImageIndex]})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <Header />
       <div className="signup">
-       
         <form onSubmit={handleFormSubmit} className="signForm">
           <div>
             <input type="text" placeholder="Surname" value={surname} onChange={(e) => setSurname(e.target.value)} />

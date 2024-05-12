@@ -160,3 +160,79 @@
   .comment-button:hover {
     color: #4caf50;
   }
+
+  /* For screens smaller than 768px */
+@media (max-width: 767px) {
+  .table-data2 {
+    width: 100%;
+    margin-left: 0;
+    padding-right: 15px;
+  }
+
+  .create-post {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .post-feed {
+    width: 100%;
+  }
+
+  .post-card {
+    padding: 15px;
+  }
+
+  .post-header .avatar {
+    width: 30px;
+    height: 30px;
+  }
+
+  .post-header .facebook-badge {
+    padding: 3px 8px;
+    font-size: 12px;
+  }
+
+  .post-content p {
+    padding: 8px;
+  }
+}
+
+/* For screens smaller than 480px */
+@media (max-width: 479px) {
+  .table-data2 {
+    padding-top: 40px;
+    padding-right: 10px;
+  }
+
+  .create-post {
+    padding: 10px;
+  }
+
+  .post-card {
+    padding: 10px;
+  }
+
+  .post-header .avatar {
+    width: 25px;
+    height: 25px;
+  }
+
+  .post-header .username {
+    font-size: 14px;
+  }
+
+  .post-header .facebook-badge {
+    padding: 2px 6px;
+    font-size: 10px;
+  }
+
+  .post-content p {
+    padding: 6px;
+    font-size: 14px;
+  }
+
+  .like-button,
+  .comment-button {
+    font-size: 14px;
+  }
+}
