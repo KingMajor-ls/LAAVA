@@ -1,0 +1,90 @@
+.chat-container {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    padding-left: 90px;
+
+    width: 100%;
+    height: 100vh;
+    background-color: #011007;  
+    background: linear-gradient(135deg, #011007, #064f0e);
+
+  }
+  
+  .chat-box {
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 8px;
+    align-items: center;
+    width: 50%;
+    background-color: #064f0e; /* Darker chat background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+  }
+  
+  .chat-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .label {
+    margin-bottom: 10px;
+    color: #ffffff; /* White color for labels */
+  }
+  
+  .input-combine {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .input-box {
+    padding-top: 10px;
+    outline: none;
+    color: #ffffff; /* White color for input text */
+    background-color: transparent; /* Transparent input box */
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .input-box::placeholder {
+    color: #aaaaaa; /* Lighter placeholder text */
+  }
+  
+  .submit-button button {
+    padding: 10px 20px;
+    background-color: #012707; /* Teal button */
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button button:hover {
+    background-color: #00796b; /* Darker teal on hover */
+  }
+  
+  .user-request {
+    color: #ffffff; /* White color for user request */
+  }
+  
+  .chat-response {
+    margin-top: 15px;
+    text-align: center;
+    color: #ffffff; /* White color for chat response */
+  }
+  
+  .robot-icon {
+    font-size: 48px;
+    color: #03a9f4; /* Blue color for robot icon */
+  }
+  
+  .ai-icon {
+    font-size: 24px;
+    color: #ff5722; /* Orange color for AI icon */
+  }
+  
