@@ -1,0 +1,137 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  padding-left: 90px;
+  width: 100%;
+  height: 100vh;
+  background-color: #011007;
+  background: linear-gradient(135deg, #011007, #064f0e);
+}
+
+.chat-box {
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 8px;
+  align-items: center;
+  width: 50%;
+  background-color: #064f0e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.chat-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.input-combine {
+  display: flex;
+  gap: 20px;
+}
+
+.input-box {
+  padding-top: 10px;
+  outline: none;
+  color: #ffffff;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.input-box::placeholder {
+  color: #aaaaaa;
+}
+
+.submit-button button {
+  padding: 10px 20px;
+  background-color: #012707;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button button:hover {
+  background-color: #00796b;
+}
+
+.user-request {
+  color: #ffffff;
+}
+
+.chat-response {
+  margin-top: 15px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.robot-icon {
+  font-size: 48px;
+  color: #03a9f4;
+}
+
+.ai-icon {
+  font-size: 24px;
+  color: #ff5722;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .chat-container {
+    padding-top: 50px;
+    padding-left: 20px;
+  }
+
+  .chat-box {
+    width: 80%;
+    padding: 15px;
+  }
+
+  .input-combine {
+    gap: 10px;
+  }
+
+  .input-box {
+    padding: 8px;
+  }
+
+  .submit-button button {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-container {
+    padding-top: 30px;
+    padding-left: 10px;
+  }
+
+  .chat-box {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .input-combine {
+    gap: 5px;
+  }
+
+  .input-box {
+    padding: 6px;
+  }
+
+  .submit-button button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}

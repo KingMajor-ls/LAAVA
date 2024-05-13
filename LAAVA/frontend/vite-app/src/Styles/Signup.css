@@ -1,0 +1,76 @@
+.signup {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.signup h1 {
+  color: #012707;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.signForm {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.signForm input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button-container button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #012707;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+  background-color: #176723;
+}
+
+.footer {
+  margin-top: 50px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .signup {
+    padding: 30px 0;
+  }
+  
+  .signup h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .signForm {
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .signup h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .signForm {
+    max-width: 90%;
+  }
+}

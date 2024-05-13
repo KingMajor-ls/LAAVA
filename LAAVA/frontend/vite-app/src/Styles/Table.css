@@ -1,0 +1,34 @@
+.table{
+    min-width: 100vw;
+    min-height: 100vh;
+    text-align: center;
+    color: aliceblue;
+    background-color: #011007;
+    background: linear-gradient(135deg, #011007, #064f0e);
+
+}
+.table-data{
+    width: calc(100%-300px);
+    margin-left: 300px;
+    padding-top: 60px;
+    padding-right: 30px;
+}
+
+@media (max-width: 768px) {
+    .table {
+      min-width: 100%;
+      min-height: auto;
+    }
+  
+    .table-data {
+      width: 100%;
+      margin-left: 0;
+      padding: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .table-data {
+      padding: 10px;
+    }
+  }
