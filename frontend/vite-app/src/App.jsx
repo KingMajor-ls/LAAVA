@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { isUserAuthenticated, getUserData } from './userAuthService';
 import Login from './Components/Login';
 import Dashboard from './Components/Dashboard/Dashboard';
 import About from './Components/About';
@@ -19,16 +20,41 @@ import ErrorBoundary from './Components/Dashboard/ErrorBoundary';
 import NotificationTab from './Components/Dashboard/Notifications';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const isAuth = isUserAuthenticated();
+    setIsAuthenticated(isAuth);
+
+    if (isAuth) {
+      const storedUserData = getUserData();
+      setUserData(storedUserData);
+    }
+  }, []);
+
+  const ProtectedRoute = ({ children }) => {
+    if (!isAuthenticated) {
+      return <Navigate to="/login" replace />;
+    }
+
+    return children;
+  };
 
   return (
     <Router>
-      
-        <Routes>
-          <Route path="/" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          {/* <Route path="/home" element={<Layout />}> */}
-          <Route path="/home" element={<Layout />}>
+      <Routes>
+        <Route path="/" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <Layout />
+            </ProtectedRoute>
+          }
+        >
           <Route index element={<Feeds />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="chat" element={<Chat />} />
@@ -41,9 +67,9 @@ function App() {
           <Route path="community" element={<Community />} />
           <Route path="feeds" element={<Feeds />} />
           <Route path="table" element={<Table />} />
-          <Route path="notifications" element={<NotificationTab/>}/>
-          </Route>
-        </Routes>
+          <Route path="notifications" element={<NotificationTab />} />
+        </Route>
+      </Routes>
     </Router>
   );
 }

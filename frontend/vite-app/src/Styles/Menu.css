@@ -103,7 +103,7 @@
   font-family: 'Arial', sans-serif;
   background-color: #011007;
   background: linear-gradient(135deg, #011007, #064f0e);
-
+  color:whitesmoke;
   margin: 20px;
   width: 100vw;
   text-align: center;
@@ -214,6 +214,7 @@ h2 {
 }
 
 /****************************END CHARTS**************************************/
+/* For screens smaller than 768px */
 @media (max-width: 767px) {
   /* Chat.jsx */
   .chat {
@@ -233,10 +234,14 @@ h2 {
 
   /* Weather.css */
   .weatherBody {
+    color: whitesmoke;
     padding: 10px;
     height: auto;
     width: 100%;
     padding-bottom: 0;
+  }
+  .weatherHeading{
+    color: whitesmoke;
   }
 
   .weatherInput {
@@ -295,54 +300,5 @@ h2 {
   .data-table td {
     padding: 6px;
     font-size: 14px;
-  }
-}
-
-@media (max-width: 767px) {
-  .table {
-    height: auto;
-    padding-bottom: 0;
-  }
-
-  .table-data {
-    width: 100%;
-    margin-left: 0;
-    padding: 20px;
-  }
-
-  .grid-container {
-    grid-template-columns: auto;
-    grid-gap: 20px;
-  }
-
-  .grid-item {
-    height: 300px;
-  }
-
-  .year-section {
-    margin-bottom: 20px;
-  }
-}
-
-/* For screens smaller than 480px */
-@media (max-width: 479px) {
-  .table-data {
-    padding: 10px;
-  }
-
-  .section-title {
-    font-size: 20px;
-  }
-
-  .chart-title {
-    font-size: 16px;
-  }
-
-  .axis-label {
-    font-size: 12px;
-  }
-
-  .year-title {
-    font-size: 20px;
   }
 }

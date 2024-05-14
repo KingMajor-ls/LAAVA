@@ -9,15 +9,17 @@
     font-size: 15px;
     color: white;
     border-radius: 5px;
-}
-@media (max-width: 768px) {
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
     .footer {
       height: 5vh; /* Adjust height for smaller screens */
       gap: 20px; /* Decrease space between elements */
       font-size: 13px; /* Decrease font size */
     }
   }
-
+  
   @media (max-width: 480px) {
     .footer {
       height: 4vh; /* Further adjust height for even smaller screens */
@@ -25,3 +27,4 @@
       font-size: 11px; /* Further decrease font size */
     }
   }
+  

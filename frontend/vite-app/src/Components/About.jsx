@@ -6,11 +6,13 @@ import Footer from './Footer';
 
 // Import your images
 import image3 from '../assets/image3.jpg';
+import image1 from '../assets/image1.jpg';
+import image2 from '../assets/image2.jpg';
 import image4 from '../assets/image4.jpg';
 
 function About() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = [image3, image4]; // Array of your images
+  const images = [image3, image4,image1,image2]; // Array of your images
 
   const navigate = useNavigate();
 

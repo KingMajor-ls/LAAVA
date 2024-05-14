@@ -72,38 +72,53 @@
     font-size: 24px;
     font-weight: bold;
   }
-  @media (max-width: 768px) {
-    .search-container {
-      flex-direction: column;
-      align-items: stretch;
-      max-width: 100%;
-      padding: 0 20px;
-    }
-  
-    .search-input {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-  
-    .search-button {
-      width: 100%;
-      margin-left: 0;
-    }
+
+  /* For screens smaller than 768px */
+@media (max-width: 767px) {
+  .table {
+    height: auto;
+    padding-bottom: 0;
   }
-  
-  @media (max-width: 480px) {
-    .search-input {
-      font-size: 14px;
-      padding: 8px;
-    }
-  
-    .search-button {
-      font-size: 14px;
-      padding: 8px 16px;
-    }
-  
-    .search-button img {
-      width: 16px;
-      height: 16px;
-    }
+
+  .table-data {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px;
   }
+
+  .grid-container {
+    grid-template-columns: auto;
+    grid-gap: 20px;
+  }
+
+  .grid-item {
+    height: 300px;
+  }
+
+  .year-section {
+    margin-bottom: 20px;
+  }
+}
+
+/* For screens smaller than 480px */
+@media (max-width: 479px) {
+  .table-data {
+    padding: 10px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .chart-title {
+    font-size: 16px;
+  }
+
+  .axis-label {
+    font-size: 12px;
+  }
+
+  .year-title {
+    font-size: 20px;
+  }
+}

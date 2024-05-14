@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const cors = require('cors'); // Import the cors package
+
 const port = 8280;
 const fs = require('fs');
 const jwt = require('jsonwebtoken');
@@ -13,35 +15,14 @@ const reportsService = require('./models/reportsService');
 const crypto = require('crypto');
 const postService = require('./models/postService'); // Import the postService module
 const multer = require('multer');
-
-const cors = require('cors');
 const path = require('path'); // Add this line to require the path module
+
 
 const { predictImageObjectDetection } = require('./models/predict');
 const { predictImage } = require('./models/predict');
 
-app.use(function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173'); // Update with your frontend URL
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
-
-
-// or, to allow specific origins
-const allowedOrigins = ['http://localhost:5173'];
-app.use(cors({
-  origin: function(origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-}));
 
 require('./models/fetchDataFromThingSpeak');
-require('./models/notification');
 // const upload = multer({ dest: 'uploads/' }); // Set the destination folder for uploaded images
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -57,7 +38,10 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 const secretKey = crypto.randomBytes(32).toString('hex'); // 32 bytes = 256 bits
 console.log(secretKey);
 // Middleware for parsing JSON request bodies
+app.use(cors());
 app.use(express.json());
+
+
 
 // Helper function to generate JWT token
 function generateToken(user) {
@@ -95,12 +79,19 @@ function authorize(roles = []) {
   ];
 }
 
-app.use(function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers');
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers');
+//   next();
+// });
+// Allow requests from a specific origin
+app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
 
 // app.post('/predict', upload.single('image'), async (req, res) => {
 //   try {

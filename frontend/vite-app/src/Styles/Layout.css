@@ -54,6 +54,8 @@
 .outlet {
   padding-top: 20px;
 }
+
+/* For screens smaller than 768px */
 @media (max-width: 767px) {
   .sidebar {
     width: 200px;

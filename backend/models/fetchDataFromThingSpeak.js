@@ -44,9 +44,7 @@ async function fetchDataAndInsert() {
 }
 
 // Set up an interval to fetch data every minute
-fetchDataAndInsert();
-
-const interval = setInterval(fetchDataAndInsert, 600000);
+const interval = setInterval(fetchDataAndInsert, 6000000);
 
 // Close the PostgreSQL pool when the script is terminated
 process.on('SIGINT', async () => {

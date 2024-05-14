@@ -53,13 +53,13 @@
   .signup {
     padding: 30px 0;
   }
-
+  
   .signup h1 {
     font-size: 24px;
     margin-bottom: 20px;
   }
 
-  .signForm input {
+  .signForm {
     max-width: 80%;
   }
 }

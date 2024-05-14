@@ -1,9 +1,7 @@
-/* App.css */
-
 .laava {
   background-color: #012707; /* Green background color */
   text-align: center;
-  padding: 10px  0 0 0;
+  padding: 10px 0;
   color: white;
   border-radius: 5px;
   height: 6vh;
@@ -13,18 +11,14 @@
   margin: 0;
 }
 
-/* You can adjust the background color, padding, and other styles as needed. */
-
 .app {
   text-align: center;
-  padding: 0 px;
-  margin:0px;
-  background: 
-    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), /* Dark overlay with 10% opacity */
-    url('../Static/image1.jpg') center/cover fixed;
-
-
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../Static/image1.jpg') center/cover fixed;
 }
+
+/* Responsive styles */
 @media screen and (max-width: 768px) {
   .laava {
     padding: 5px 0;
