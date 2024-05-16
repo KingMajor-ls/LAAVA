@@ -37,7 +37,7 @@ const Weather = () => {
   return (
       <div className='weatherBody'>
         <div className='weatherHeader'>
-          <h1>See weather forecasts in different areas.</h1>
+          <h1 className='weatherHeading'>See weather forecasts in different areas.</h1>
           <input className='weatherInput'
             type="text"
             placeholder="Enter city"

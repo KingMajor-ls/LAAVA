@@ -55,7 +55,7 @@ function Reports() {
     if (productions.length === 0) return null;
 
     const header = Object.keys(productions[0]);
-    return header.map((key, index) => <th key={index}>{key.toUpperCase()}</th>);
+    return header.map((key, index) => <th key={index} className="table-headings">{key.toUpperCase()}</th>);
   };
 
   const renderTableData = () => {
@@ -80,7 +80,7 @@ function Reports() {
     }));
 
     return (
-      <BarChart width={500} height={300} data={data}>
+      <BarChart width={500} className='chartcolor' height={300} data={data}>
         <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />

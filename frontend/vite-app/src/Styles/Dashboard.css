@@ -24,6 +24,43 @@
   margin-top: 10px;
   cursor: pointer;
 }
+@keyframes sparkAnimation {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  25% {
+    transform: translate(100px, 100px) scale(1.2);
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  50% {
+    transform: translate(200px, 0px) scale(1.5);
+    opacity: 0.5;
+    filter: blur(4px);
+  }
+  75% {
+    transform: translate(100px, -100px) scale(1.2);
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+.spark {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: white; /* Adjust color as needed */
+  border-radius: 50%; /* Make it round */
+  animation: sparkAnimation 5s infinite linear; /* Adjust animation duration as needed */
+}
+
 
 
 .grid-container {
@@ -61,8 +98,9 @@
   
 }
 
+
 .header-left {
-  padding-right: 200px;
+  
   display: flex;
   align-items: center;
   
@@ -84,17 +122,14 @@
 
 }
 
-.search-input-container {
-  position: relative;
-  flex: 1;
-}
+
 
 .search-input {
   position: relative;
   margin-left: 200px;
 
 
-  margin-top: 15px;
+  margin-top: 50px;
   padding: 10px 40px 10px 10px;
   border: 1px solid whitesmoke;
   border-radius: 20px;
@@ -107,39 +142,37 @@
 .iconSearch {
   position: relative;
   margin-top: 25px;
+  
   top: 50%;
   right: 37px; /* Adjusted position */
   transform: translateY(-50%);
   width: 24px;
   height: 24px;
   cursor: pointer;
-  color:#012707; /* Adjust the color to a contrasting one */
+  color:white; /* Adjust the color to a contrasting one */
   transition: transform 0.3s;
 }
 
 
 
 
+
 /* End Header  */
 
-/* Sidebar  */
 #sidebar {
-  grid-area: sidebar;
   height: 100%;
-  /* background-color: #263043; */
   background-color: #011007;
   background: linear-gradient(135deg, #011007, #064f0e);
+  color: white;
   overflow-y: auto;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
-
-  position: fixed; /* Fix the position */
-  top: 0; /* Position from the top */
-  left: 0; /* Position from the left */
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 250px;
-  bottom: 0; /* Fill the height of the viewport */
+  bottom: 0;
 }
-
 
 .sidebar-title {
   color: white;
@@ -151,58 +184,38 @@
   height: 45px;
 }
 
-.sidebar-title > span {
-  display: none;
-}
-
-.sidebar-brand {
-  right:10;
-  font-size: 20px;
-  display: flex;
-  gap:10px;
-  
- 
-}
-
-.icon_header_login {
-  vertical-align: middle;
-  font-size: 25px;
-  margin-bottom: 2px;
+.sidebar-title > div > h2 {
+  margin: 0;
 }
 
 .sidebar-list {
-  color:white;
+  color: white;
   padding: 0;
-  list-style-type: none;
   text-align: left;
 }
 
 .sidebar-list-item {
-  padding: 20px 20px 20px 20px;
+  color: white;
+  padding: 20px;
   font-size: 18px;
   height: 22px;
+  transition: background-color 0.3s;
+  cursor: pointer; /* Add cursor pointer */
 }
 
 .sidebar-list-item:hover {
   background-color: #15a2c933;
-  cursor: pointer;
 }
 
-.sidebar-list-item > a {
-  text-decoration: none;
-  color: #9e9ea4;
-}
-
-.sidebar-responsive {
-  display: inline !important;
-  position: absolute;
-  z-index: 12 !important;
+.sidebar-list-item > span {
+  margin-left: 10px; /* Add margin-left to create space between icon and text */
 }
 
 .sidebar-list-item.active {
-    background-color: #15a2c933; 
-    border-left: 5px solid #15a2c995; 
+  background-color: #15a2c933;
+  border-left: 5px solid #15a2c995;
 }
+
 
 /* End Sidebar  */
 
@@ -328,7 +341,8 @@
     /* overflow: hidden; */
 
     /* background-image: url('agricultural-background.jpg'); */
-    background-color: #03450d;
+    background-color: #011007;
+    background: linear-gradient(135deg, #011007, #064f0e);
     background-size: cover;
     margin-top: 40px;
     margin-left: 230px;
@@ -353,7 +367,6 @@
     overflow-y: auto;
     position: sticky;
     top: 0;
-    background-color: #058818;
     border-left: 2px solid #058818;
     height: 1000px;
 }

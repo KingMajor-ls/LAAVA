@@ -1,6 +1,8 @@
 /* Community.css */
 textarea::placeholder {
   color: white;
+
+ 
 }
 
 .answers form textarea {
@@ -8,7 +10,8 @@ textarea::placeholder {
   padding: 10px;
   border: none;
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #011007;
+  background: linear-gradient(135deg, #011007, #064f0e);
   color: #fff;
   resize: vertical;
   font-size: 16px;
@@ -18,10 +21,26 @@ textarea::placeholder {
 .answer {
   color: #064f0e;
 }
+.facebook-badge {
+  color: blue;
+  margin-top: 17px;
+  font-size: 15px;
+}
+
+.logo-name {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  margin-right: 5px; /* Adjust spacing between username and badge */
+}
+
 
 .answers form button {
-  background-color: #fff;
-  color: #064f0e;
+  background-color: #011007;
+  background: linear-gradient(135deg, #011007, #064f0e);
+  color:white;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -90,7 +109,8 @@ textarea::placeholder {
   padding: 10px;
   border: none;
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #011007;
+  background: linear-gradient(135deg, #011007, #064f0e);
   color: #fff;
   resize: vertical;
   font-size: 16px;
@@ -98,8 +118,9 @@ textarea::placeholder {
 }
 
 .question-form button {
-  background-color: #fff;
-  color: #064f0e;
+  background-color: #011007;
+  background: linear-gradient(135deg, #011007, #064f0e);
+  color:white;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -131,7 +152,8 @@ textarea::placeholder {
 }
 
 .question {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #011007;
+  background: linear-gradient(135deg, #011007, #064f0e);
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;

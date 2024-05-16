@@ -12,6 +12,8 @@ const weather_model = require('./models/weather');
 const sensor_model = require('./models/getSensorData');
 const questionService = require('./models/questionService');
 const reportsService = require('./models/reportsService');
+const searchService = require('./models/searchService');
+
 const crypto = require('crypto');
 const postService = require('./models/postService'); // Import the postService module
 const multer = require('multer');
@@ -343,6 +345,20 @@ app.put('/farmers/:userId', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+app.get('/api/users/:userId', async (req, res) => {
+  const userId = req.params.userId;
+
+  try {
+    const user = await userService.getFarmerByUserId(userId);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    res.json(user);
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 
 // Route to create a new post
@@ -375,6 +391,19 @@ app.post('/api/posts/:postId/likes', async (req, res) => {
 });
 
 // Route to comment on a post
+// app.post('/api/posts/:postId/comments', async (req, res) => {
+//   const { postId } = req.params;
+//   const { userId, text } = req.body;
+
+//   try {
+//     const commentedPost = await postService.commentOnPost(postId, userId, text);
+//     res.json(commentedPost);
+//   } catch (error) {
+//     console.error('Error commenting on post:', error);
+//     res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// });
+
 app.post('/api/posts/:postId/comments', async (req, res) => {
   const { postId } = req.params;
   const { userId, text } = req.body;
@@ -387,6 +416,19 @@ app.post('/api/posts/:postId/comments', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+// Route to get comments for a specific post
+app.get('/api/posts/:postId/comments', async (req, res) => {
+  const { postId } = req.params;
+
+  try {
+    const comments = await postService.getCommentsForPost(postId); // Assuming you have a method in postService to fetch comments for a post
+    res.json(comments);
+  } catch (error) {
+    console.error('Error fetching comments:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 
 // Add a new route to fetch all posts
 app.get('/api/posts', async (req, res) => {
@@ -399,6 +441,22 @@ app.get('/api/posts', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+app.post('/api/search', async (req, res) => {
+  const { query } = req.body;
+  console.log('Received search query:', query); // Add this line
+
+  try {
+    // Call the search service to perform the search
+    const searchResults = await searchService.search(query);
+    console.log('Search results:', searchResults); // Add this line
+    res.json({ success: true, results: searchResults });
+  } catch (error) {
+    console.error('Error performing search:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });

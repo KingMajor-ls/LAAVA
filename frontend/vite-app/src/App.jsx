@@ -12,6 +12,7 @@ import Predict from './Components/Dashboard/Predict';
 import MyData from './Components/Dashboard/MyData';
 import Reports from './Components/Dashboard/Reports';
 import Community from './Components/Dashboard/Community';
+import Search from './Components/Dashboard/Search';
 import Signup from './Components/Signup';
 import Feeds from './Components/Dashboard/Feeds';
 import Table from './Components/Dashboard/Table';
@@ -67,6 +68,7 @@ function App() {
           <Route path="community" element={<Community />} />
           <Route path="feeds" element={<Feeds />} />
           <Route path="table" element={<Table />} />
+          <Route path="search" element={<Search />} />
           <Route path="notifications" element={<NotificationTab />} />
         </Route>
       </Routes>

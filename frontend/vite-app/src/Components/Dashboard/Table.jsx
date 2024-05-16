@@ -31,7 +31,7 @@ function Table() {
     const header = Object.keys(humidityAndTemp[0]);
     const filteredHeader = header.filter(key => key !== 'station_id');
 
-    return filteredHeader.map((key, index) => <th key={index}>{key.toUpperCase()}</th>);
+    return filteredHeader.map((key, index) => <th key={index}className="table-headings">{key.toUpperCase()}</th>);
   };
 
 
@@ -65,7 +65,7 @@ function Table() {
         <h2> Sensor Data Table</h2>
         {humidityAndTemp.length > 0 ? (
           <table className='data-table'>
-            <thead>
+            <thead className='table-headings'>
               <tr>{renderTableHeader()}</tr>
             </thead>
             <tbody>{renderTableData()}</tbody>

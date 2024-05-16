@@ -37,7 +37,7 @@ async function createPost(postData) {
   async function getPosts() {
     try {
       const { rows } = await pool.query(`
-        SELECT p.id, p.user_id, p.text, p.image, p.likes, p.comments, p.created_at, f.username
+        SELECT p.id, p.user_id, p.text, p.image, p.likes,p.created_at, f.username
         FROM posts p
         JOIN farmer f ON p.user_id = f.id
       `);
@@ -48,10 +48,31 @@ async function createPost(postData) {
     }
   }
   
+// async function likePost(postId, userId) {
+//   try {
+//     const { rows } = await pool.query(
+//       'UPDATE posts SET likes = array_append(likes, $1) WHERE id = $2 RETURNING *',
+//       [userId, postId]
+//     );
+//     return rows[0];
+//   } catch (error) {
+//     console.error('Error liking post:', error);
+//     throw error;
+//   }
+// }
+
 async function likePost(postId, userId) {
   try {
     const { rows } = await pool.query(
-      'UPDATE posts SET likes = array_append(likes, $1) WHERE id = $2 RETURNING *',
+      `
+      UPDATE posts
+      SET likes = CASE
+        WHEN $1 = ANY(likes) THEN array_remove(likes, $1)
+        ELSE array_append(likes, $1)
+      END
+      WHERE id = $2
+      RETURNING *
+    `,
       [userId, postId]
     );
     return rows[0];
@@ -61,23 +82,48 @@ async function likePost(postId, userId) {
   }
 }
 
+
+
+
+
+
+
 async function commentOnPost(postId, userId, text) {
   try {
-    const comment = { user_id: userId, text, created_at: new Date() };
+    const comment = { post_id: postId, user_id: userId, text, created_at: new Date() };
     const { rows } = await pool.query(
-      'UPDATE posts SET comments = array_append(comments, $1) WHERE id = $2 RETURNING *',
-      [comment, postId]
+      `INSERT INTO comments (post_id, user_id, text, created_at)
+       VALUES ($1, $2, $3, $4)
+       RETURNING *`,
+      [postId, userId, text, comment.created_at]
     );
+
     return rows[0];
   } catch (error) {
     console.error('Error commenting on post:', error);
     throw error;
   }
 }
+async function getCommentsForPost(postId) {
+  try {
+    const { rows } = await pool.query(
+      'SELECT * FROM comments WHERE post_id = $1',
+      [postId]
+    );
+    return rows;
+  } catch (error) {
+    console.error('Error getting comments:', error);
+    throw error;
+  }
+}
+
+
+
 
 module.exports = {
   createPost,
   likePost,
   commentOnPost,
   getPosts,
+  getCommentsForPost,
 };

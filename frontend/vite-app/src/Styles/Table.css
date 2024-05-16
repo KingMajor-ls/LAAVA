@@ -13,6 +13,9 @@
     padding-top: 60px;
     padding-right: 30px;
 }
+.table-headings{
+  color:#011007;
+}
 
 @media (max-width: 768px) {
     .table {
