@@ -195,7 +195,7 @@ const Login = () => {
           <form onSubmit={handleLoginClick}>
             <input
               type="text"
-              placeholder="Username"
+              placeholder="Username/mabitso"
               className="username"
               value={usernameInput}
               onChange={(e) => setUsernameInput(e.target.value)}
@@ -203,7 +203,7 @@ const Login = () => {
             <div className="password-container">
               <input
                 type={passwordVisible ? 'text' : 'password'}
-                placeholder="Password"
+                placeholder="Mantsoe a lekunutu/Password"
                 className="password"
                 value={passwordInput}
                 onChange={(e) => setPasswordInput(e.target.value)}
@@ -212,11 +212,11 @@ const Login = () => {
             </div>
             <div className="homepage">
               <button type="submit" className="btn1"> Login </button>
-              <a href="#" className="forgot-password"> Forgot password? </a>
+              <a href="#" className="forgot-password"> U lebetse mantsoe a lekunutu? </a>
             </div>
             <div className='forgot-password'>
               <Link to="/Signup">
-                <h4 > Don't have an account ? Signup</h4>
+                <h4 > Ngolisa/Signup</h4>
               </Link>
             </div>
           </form>

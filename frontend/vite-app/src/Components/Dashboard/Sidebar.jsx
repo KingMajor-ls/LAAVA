@@ -1,6 +1,18 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { WiDayCloudy } from 'weather-icons-react';
-import { BsGrid1X2Fill, BsPeopleFill, BsListCheck, BsMenuButtonWideFill, BsFillGearFill, BsPersonCircle, BsChatFill, BsHouseDoorFill } from 'react-icons/bs';
+import { 
+  BsGrid1X2Fill, 
+  BsPeopleFill, 
+  BsListCheck, 
+  BsMenuButtonWideFill, 
+  BsFillGearFill, 
+  BsPersonCircle, 
+  BsChatFill, 
+  BsHouseDoorFill,
+  BsShop, // New icon for Market
+  BsMap,  // New icon for Map
+  BsApp // New icon for Other Apps
+} from 'react-icons/bs';
 
 function SidebarItem({ icon, label, path }) {
   const navigate = useNavigate();
@@ -34,8 +46,12 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
         <SidebarItem icon={<BsChatFill />} label="Enter Query" path="/home/chat" />
         <SidebarItem icon={<WiDayCloudy />} label="Weather" path="/home/weather" />
         <SidebarItem icon={<BsPeopleFill />} label="Community" path="/home/community" />
-        <SidebarItem icon={<BsListCheck />} label="Data Management" path="/home/Enter-data" />
+        <SidebarItem icon={<BsListCheck />} label="Data Management" path="/home/enter-data" />
         <SidebarItem icon={<BsMenuButtonWideFill />} label="Reports" path="/home/reports" />
+
+        <SidebarItem icon={<BsShop />} label="Market" path="/home/market" /> {/* New button */}
+        <SidebarItem icon={<BsMap />} label="Map" path="/home/map" /> {/* New button */}
+        <SidebarItem icon={<BsApp />} label="Other-apps premium" path="/home/other-apps" /> {/* New button */}
         <SidebarItem icon={<BsFillGearFill />} label="Account Settings" path="/home/settings" />
         <SidebarItem icon={<BsPersonCircle />} label="Log-out" path="/login" />
       </ul>

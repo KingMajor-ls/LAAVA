@@ -1,127 +1,3 @@
-// import  { useState } from 'react';
-// import axios from 'axios';
-// import Layout from './Layout';
-// import '../../Styles/Chat.css';
-// import { FaRobot } from 'react-icons/fa'; 
-// import { AiOutlineRobot } from 'react-icons/ai'; 
-
-
-
-// function Chat() {
-//   const [prompt, setPrompt] = useState("");
-//   const [response, setResponse] = useState("");
-//   const [reque, setReque] = useState("");
-//   const [prediction, setPrediction] = useState('');
-
-//   const handleImageChangeDisease = async (event) => {
-//     const file = event.target.files[0];
-//     const formData = new FormData();
-//     formData.append('image', file);
-
-//     try {
-//       const response = await fetch('http://localhost:8280/predictDisease', {
-//         method: 'POST',
-//         body: formData,
-//       });
-
-//       const result = await response.json();
-//       const predictions = result.predictions;
-
-//       if (predictions && predictions.length > 0) {
-//         const displayName = predictions[0].displayName;
-//         setPrediction(displayName + ': ');
-//       } else {
-//         setPrediction('No predictions');
-//       }
-
-//     } catch (error) {
-//       console.error('Error uploading image:', error);
-//     }
-//   };
-
-
-
-//     const handleImageChangeSoil = async (event) => {
-//     const file = event.target.files[0];
-//     const formData = new FormData();
-//     formData.append('image', file);
-
-//     try {
-//       const response = await fetch('http://localhost:8280/predictSoil', {
-//         method: 'POST',
-//         body: formData,
-//       });
-
-//       const result = await response.json();
-//       const predictions = result.predictions;
-
-//       if (predictions && predictions.length > 0) {
-//         const displayName = predictions[0].displayName;
-//         setPrediction(displayName + ': ');
-//       } else {
-//         setPrediction('No predictions');
-//       }
-
-//     } catch (error) {
-//       console.error('Error uploading image:', error);
-//     }
-//   };
-
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const res = await axios.post("http://localhost:8280/chat", {
-//         query: prediction + prompt
-//       });
-//       setResponse(res.data.answer);
-
-//       // Clear the input text
-//       setReque(prompt);
-//       setPrompt("");
-//       setPrediction("");
-//     } catch (err) {
-//       console.error(err);
-//     }
-//   };
-
-  
-//   return (
-//     <div>
-//         <div className='chat-container'>
-//           <div className='chat-box'>
-//           <input type="file" accept="image/*" onChange={handleImageChangeSoil} />
-//             <form className='chat-form' onSubmit={handleSubmit}>
-//               <div className='label'>
-//                 <label>Ask anything?</label>
-//               </div>
-//               <div className='input-combine'>
-//                 <div className='input-box'>
-//                   <input type='text' value={prompt} onChange={(e) => setPrompt(e.target.value)} placeholder="Type here..." />
-//                 </div>
-//                 <div className='submit-button'>
-//                   <button type='submit'>Submit</button>
-//                 </div>
-//               </div>
-//             </form>
-//             <div className='user-request'>
-//               <p>{reque ? <FaRobot className='robot-icon' /> : ""} {reque}</p> {/* Using robot icon */}
-//             </div>
-//             <div className='chat-response'>
-//               <p>{response ? <AiOutlineRobot className='ai-icon' /> : ""} {response}</p> {/* Using AI icon */}
-//             </div>
-//           </div>
-//         </div>
-//     </div>
-//   );
-// }
-
-// export default Chat;
-/*****************************************************************************************************************************************
- * **********************************************************************************************************************************
- */
-
-
 import { useState } from 'react';
 import axios from 'axios';
 import Layout from './Layout';
@@ -130,14 +6,15 @@ import { FaRobot } from 'react-icons/fa';
 import { AiOutlineRobot } from 'react-icons/ai';
 
 function Chat() {
-  const [prompt, setPrompt] = useState("");
-  const [response, setResponse] = useState("");
-  const [reque, setReque] = useState("");
-  const [prediction, setPrediction] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
-  const [soilFileUploaded, setSoilFileUploaded] = useState(false);
-  const [cropFileUploaded, setCropFileUploaded] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [prompt, setPrompt] = useState(""); // Current user input
+  const [response, setResponse] = useState(""); // Current chatbot response
+  const [reque, setReque] = useState(""); // Current user request
+  const [prediction, setPrediction] = useState(""); // Prediction results
+  const [selectedOption, setSelectedOption] = useState(""); // Dropdown value
+  const [soilFileUploaded, setSoilFileUploaded] = useState(false); // Soil upload visibility
+  const [cropFileUploaded, setCropFileUploaded] = useState(false); // Crop upload visibility
+  const [chatHistory, setChatHistory] = useState([]); // To store chat history
+  const [loading, setLoading] = useState(false); // Loading state
 
   const handleImageChangeDisease = async (event) => {
     const file = event.target.files[0];
@@ -154,18 +31,10 @@ function Chat() {
       const predictions = result.predictions;
 
       if (predictions && predictions.length > 0) {
-        // const displayName = predictions[0].displayName;
-        // setPrediction(displayName + ': ');
-        // console.log (prediction);
-        console.log(predictions);
-        setPrediction(predictions + ':  ');
-        console.log(prediction);
-        console.log("Find abovve");
-        
+        setPrediction(predictions[0].displayName + ': ');
       } else {
         setPrediction('No predictions');
       }
-
     } catch (error) {
       console.error('Error uploading image:', error);
     }
@@ -185,19 +54,11 @@ function Chat() {
       const result = await response.json();
       const predictions = result.predictions;
 
-      console.log(predictions);
       if (predictions && predictions.length > 0) {
-        // const displayName = predictions[0].displayName;
-        // setPrediction(displayName + ': COde code ');
-
-        console.log(predictions);
-        setPrediction(predictions + ':  ');
-        console.log(prediction);
-        console.log("Find abovve");
+        setPrediction(predictions[0].displayName + ': ');
       } else {
         setPrediction('No predictions');
       }
-
     } catch (error) {
       console.error('Error uploading image:', error);
     }
@@ -205,14 +66,10 @@ function Chat() {
 
   const handleDropdownChange = (event) => {
     setSelectedOption(event.target.value);
-    console.log('handle called');
     if (event.target.value === "Soil Prediction") {
-      // setFileHandler(handleImageChangeSoil);
-      console.log('called');
       setCropFileUploaded(false);
       setSoilFileUploaded(true);
     } else if (event.target.value === "Crop Disease") {
-      // setFileHandler(handleImageChangeDisease);
       setSoilFileUploaded(false);
       setCropFileUploaded(true);
     }
@@ -220,30 +77,34 @@ function Chat() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
-      setReque(prompt);
-      setResponse("Loading ... ");
+      const query = prediction + prompt;
       const res = await axios.post("http://localhost:8280/chat", {
-        query: prediction + prompt
+        query,
       });
-      if(prediction){
-        setResponse('The uploaded image shows ' + prediction + res.data.answer);
 
-      }else{
-        setResponse(res.data.answer);
-      }
-      
-      // Clear the input text
-      // setReque(prompt);
+      const botResponse = res.data.answer;
+
+      // Update chat history
+      setChatHistory((prevHistory) => [
+        ...prevHistory,
+        { user: prompt, bot: prediction ? `The image shows ${prediction}. ${botResponse}` : botResponse },
+      ]);
+
+      // Reset states for the current session
+      setReque(prompt);
+      setResponse(botResponse);
       setPrompt("");
       setPrediction("");
-      setCropFileUploaded(false);
-      setSoilFileUploaded(false);
       setSelectedOption("");
-
-    } catch (err) {
-      console.error(err);
+      setSoilFileUploaded(false);
+      setCropFileUploaded(false);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error handling the chat:', error);
+      setLoading(false);
     }
   };
 
@@ -252,6 +113,7 @@ function Chat() {
       <div className='chat-container'>
         <div className='chat-box'>
 
+          {/* Dropdown for file upload type */}
           <div>
             <select value={selectedOption} onChange={handleDropdownChange}>
               <option value="">Upload Image</option>
@@ -260,29 +122,46 @@ function Chat() {
             </select>
           </div>
 
+          {/* File upload input */}
           <div>{soilFileUploaded && <input type="file" accept="image/*" onChange={handleImageChangeSoil} />}</div>
           <div>{cropFileUploaded && <input type="file" accept="image/*" onChange={handleImageChangeDisease} />}</div>
 
+          {/* Chat form */}
           <form className='chat-form' onSubmit={handleSubmit}>
             <div className='label'>
               <label>Ask anything?</label>
-              {/* <h4>{prediction}</h4> */}
             </div>
             <div className='input-combine'>
               <div className='input-box'>
-                <input type='text' value={prompt} onChange={(e) => setPrompt(e.target.value)} placeholder="Type here..." />
+                <input
+                  type='text'
+                  value={prompt}
+                  onChange={(e) => setPrompt(e.target.value)}
+                  placeholder="Type here..."
+                />
               </div>
               <div className='submit-button'>
-                <button type='submit'>Submit</button>
+                <button type='submit' disabled={loading}>
+                  {loading ? "Submitting..." : "Submit"}
+                </button>
               </div>
             </div>
           </form>
-          <div className='user-request'>
-            <p>{reque ? <FaRobot className='robot-icon' /> : ""} {reque}</p> {/* Using robot icon */}
+
+          {/* Chat History */}
+          <div className='chat-history'>
+            {chatHistory.map((entry, index) => (
+              <div key={index} className='chat-entry'>
+                <p>
+                  <FaRobot className='robot-icon' /> <strong>User:</strong> {entry.user}
+                </p>
+                <p>
+                  <AiOutlineRobot className='ai-icon' /> <strong>Bot:</strong> {entry.bot}
+                </p>
+              </div>
+            ))}
           </div>
-          <div className='chat-response'>
-            <p>{response ? <AiOutlineRobot className='ai-icon' /> : ""} {response}</p> {/* Using AI icon */}
-          </div>
+
         </div>
       </div>
     </div>

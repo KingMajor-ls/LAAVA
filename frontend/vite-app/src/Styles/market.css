@@ -1,0 +1,56 @@
+/* Marketplace.css */
+.marketplace {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  
+  .marketplace-tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .marketplace-tabs button {
+    background: #0275d8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .marketplace-tabs button:hover {
+    background: #0256a3;
+  }
+  
+  .marketplace-content {
+    text-align: center;
+  }
+  
+  .sell-form input,
+  .sell-form button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .categories {
+    text-align: left;
+    margin-top: 20px;
+  }
+  
+  .top-categories ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .top-categories ul li {
+    margin: 5px 0;
+    font-size: 16px;
+  }
+  

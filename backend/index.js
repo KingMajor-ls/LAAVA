@@ -25,15 +25,20 @@ const { predictImage } = require('./models/predict');
 
 
 require('./models/fetchDataFromThingSpeak');
+require('./models/notification');
 // const upload = multer({ dest: 'uploads/' }); // Set the destination folder for uploaded images
+const uploadsDir = path.join(__dirname, 'uploads');
+fs.mkdirSync(uploadsDir, { recursive: true });
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/');
+    cb(null, uploadsDir);
   },
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}-${file.originalname}`);
   },
 });
+
 const upload = multer({ storage });
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // Secret key for JWT

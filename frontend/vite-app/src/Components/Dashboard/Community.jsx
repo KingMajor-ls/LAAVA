@@ -146,9 +146,9 @@ const Community = () => {
   return (
     <div className="container">
       <h1 className="heading">Community Engagement</h1>
-      <p>Ask questions, share knowledge, and collaborate with fellow members!</p>
+      <p>Matsoho a hlatsoana...Ask questions, share knowledge, and collaborate with fellow members!</p>
       <div className="question-form">
-        <h2>Ask a Question</h2>
+        <h2>Ask a Question/fana ka potso</h2>
         <form onSubmit={handleQuestionSubmit}>
           <textarea
             value={newQuestion}
@@ -160,7 +160,7 @@ const Community = () => {
         </form>
       </div>
       <div className="questions">
-        <h2>Questions</h2>
+        <h2>Lipotso</h2>
         {questions && questions.length > 0 && questions.map((q) => (
           <div key={q.id} className="question">
             <div className='logo-name'>
@@ -172,7 +172,7 @@ const Community = () => {
               Question: {q.question}
             </div>
             <div className="answers">
-              <h3 className='answer'>Answers</h3>
+              <h3 className='answer'>Answers/likarabo</h3>
               {
                 q.answers &&
                 q.answers.map(answer => (

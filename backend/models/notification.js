@@ -25,9 +25,9 @@ const sendWhatsAppNotification = (message) => {
   }
 };
 
-const getSensorData = async () => {
+const getLatestSensorData = async () => {
   try {
-    const query = 'SELECT * FROM sensor_data WHERE soil_moisture > 900 ORDER BY timestamp DESC LIMIT 1';
+    const query = 'SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 1';
     const { rows } = await pool.query(query);
     return rows[0]; // Return only the latest entry
   } catch (error) {
@@ -38,21 +38,26 @@ const getSensorData = async () => {
 
 const checkSoilMoistureAndSendNotification = async () => {
   try {
-    const latestEntry = await getSensorData();
-    if (latestEntry) {
+    const latestEntry = await getLatestSensorData();
+    if (latestEntry && latestEntry.soil_moisture > 900) {
       const message = `Soil moisture is above 900 (${latestEntry.soil_moisture}) at ${latestEntry.timestamp}`;
+      sendWhatsAppNotification(message);
+    }
+    else{
+      const message = `Conditions are back to normal you can chill a while.`;
       sendWhatsAppNotification(message);
     }
   } catch (error) {
     console.error('Error checking soil moisture and sending notification:', error);
   }
+
 };
 
 // Call the function initially
 checkSoilMoistureAndSendNotification();
 
 // Set up an interval to check periodically (every minute)
-const interval = setInterval(checkSoilMoistureAndSendNotification, 600000); 
+const interval = setInterval(checkSoilMoistureAndSendNotification, 6000000); //60000
 
 // Clear interval on process exit
 process.on('exit', () => {

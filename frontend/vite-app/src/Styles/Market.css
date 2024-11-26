@@ -1,0 +1,62 @@
+/* Marketplace.css */
+.marketplace {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    width: 80%; /* Adjust width to 80% of the parent container */
+    max-width: 800px; /* Optional: limit max width */
+    margin: 0 auto; /* Center the container horizontally */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent content from wrapping to the next line */
+  }
+  
+  .marketplace-tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .marketplace-tabs button {
+    background: #f4f6f8;
+    color: rgb(14, 13, 13);
+    padding: 60px 40px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 25px;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+  }
+  
+  .marketplace-tabs button:hover {
+    background: #0256a3;
+  }
+  
+  .marketplace-content {
+    text-align: center;
+  }
+  
+  .sell-form input,
+  .sell-form button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .categories {
+    text-align: left;
+    margin-top: 20px;
+  }
+  
+  .top-categories ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .top-categories ul li {
+    margin: 5px 0;
+    font-size: 16px;
+  }
+  

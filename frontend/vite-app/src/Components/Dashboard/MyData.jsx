@@ -61,7 +61,7 @@ const MyData = () => {
       <div className="form-container">
         <div className="form-column1">
           <div className="form-group">
-          <h3>Quarter</h3>
+          <h3>Quarter/kotara</h3>
 
             <input
               type="number"
@@ -73,7 +73,7 @@ const MyData = () => {
             />
           </div>
           <div className="form-group">
-          <h3>Potato</h3>
+          <h3>Potato/litapole</h3>
 
             <input
               type="number"
@@ -81,12 +81,12 @@ const MyData = () => {
               name="potato"
               value={formData.potato}
               onChange={handleInputChange}
-              placeholder="Enter potato units..."
+              placeholder="Enter potato units...palo ea litapole"
             />
           </div>
 
           <div className="form-group">
-          <h3>Year</h3>
+          <h3>Year/selemo</h3>
 
             <input
               type="number"
@@ -94,14 +94,14 @@ const MyData = () => {
               name="year"
               value={formData.year}
               onChange={handleInputChange}
-              placeholder="Enter year..."
+              placeholder="Enter year...kenya selemo"
             />
           </div>
         </div>
         <div className="form-column2">
 
           <div className="form-group">
-          <h3>Tomato</h3>
+          <h3>Tomato/Tamati</h3>
 
             <input
               type="number"
@@ -109,18 +109,18 @@ const MyData = () => {
               name="tomato"
               value={formData.tomato}
               onChange={handleInputChange}
-              placeholder="Enter tomato units..."
+              placeholder="Enter tomato units...Palo ea litamati"
             />
           </div>
           <div className="form-group">
-            <h3>Maize</h3>
+            <h3>Maize/Poone</h3>
             <input
               type="number"
               id="maizeUnits"
               name="maize"
               value={formData.maize}
               onChange={handleInputChange}
-              placeholder="Enter maize units..."
+              placeholder="Enter maize units...palo ea poone"
             />
           </div>
           <div className="form-group submit-btn-container">

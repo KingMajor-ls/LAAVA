@@ -1,137 +1,142 @@
+/* Main container for chat components */
 .chat-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 100px;
-  padding-left: 90px;
-  width: 100%;
-  height: 100vh;
-  background-color: #011007;
-  background: linear-gradient(135deg, #011007, #064f0e);
+  display: flex; /* Use flexbox for layout */
+  flex-direction: row; /* Arrange chat history and chat box side by side */
+  align-items: flex-start; /* Align items to the start */
+  padding-top: 50px; /* Add padding at the top */
+  width: 100%; /* Full width */
+  height: 100vh; /* Full viewport height */
+  background: linear-gradient(135deg, #011007, #064f0e); /* Gradient background */
+  gap: 20px; /* Space between chat history and chat box */
+  margin-left: 10cm; /* Move the entire container 10cm to the right */
 }
 
+/* Chat history container */
+.chat-history {
+  width: 60%; /* Set width of chat history */
+  height: 60vh; /* Set height of chat history */
+  background-color: #f5faf6; /* Light background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+  overflow-y: auto; /* Allow vertical scrolling when content overflows */
+  padding: 20px; /* Padding inside the chat history */
+}
+
+/* Header for chat history section */
+.chat-history h3 {
+  color: #ffffff; /* White text */
+  margin-bottom: 20px; /* Space below the header */
+  text-align: center; /* Center-align text */
+}
+
+/* Individual history item */
+.history-item {
+  background-color: #064f0e; /* Dark green background */
+  color: #ffffff; /* White text */
+  padding: 10px; /* Padding around each item */
+  margin-bottom: 10px; /* Space between history items */
+  border-radius: 5px; /* Rounded corners for each item */
+  cursor: pointer; /* Change cursor to pointer when hovering */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for history items */
+.history-item:hover {
+  background-color: #00796b; /* Change background color on hover */
+}
+
+/* Chat box container */
 .chat-box {
-  margin-top: 40px;
-  padding: 20px;
-  border-radius: 8px;
-  align-items: center;
-  width: 50%;
-  background-color: #064f0e;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 80%; /* Set width of chat box */
+  margin-top: 0; /* Remove any top margin */
+  padding: 20px; /* Padding inside the chat box */
+  border-radius: 8px; /* Rounded corners for chat box */
+  background-color: #064f0e; /* Dark green background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
 }
 
+/* Form inside the chat box */
 .chat-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: flex; /* Use flexbox for the form */
+  flex-direction: column; /* Stack form elements vertically */
+  align-items: center; /* Center-align form elements */
 }
 
+/* Label styling */
 .label {
-  margin-bottom: 10px;
-  color: #ffffff;
+  margin-bottom: 10px; /* Space below the label */
+  color: #ffffff; /* White text color */
 }
 
+/* Container for input fields */
 .input-combine {
-  display: flex;
-  gap: 20px;
+  display: flex; /* Use flexbox */
+  gap: 20px; /* Space between input fields */
 }
 
+/* Input box styling */
 .input-box {
-  padding-top: 10px;
-  outline: none;
-  color: #ffffff;
-  background-color: transparent;
-  border-radius: 5px;
-  padding: 10px;
+  padding: 10px; /* Padding inside the input box */
+  outline: none; /* Remove outline on focus */
+  color: #ffffff; /* White text */
+  background-color: transparent; /* Transparent background */
+  border-radius: 5px; /* Rounded corners */
+  border: 1px solid #ffffff; /* White border */
 }
 
+/* Placeholder styling */
 .input-box::placeholder {
-  color: #aaaaaa;
+  color: #aaaaaa; /* Light gray color for placeholder text */
 }
 
+/* Submit button styling */
 .submit-button button {
-  padding: 10px 20px;
-  background-color: #012707;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 10px 20px; /* Padding around the button */
+  background-color: #012707; /* Dark green background */
+  color: #ffffff; /* White text */
+  font-size: 18px; /* Font size for text */
+  font-weight: bold; /* Bold text */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners for the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
 }
 
+/* Hover effect for submit button */
 .submit-button button:hover {
-  background-color: #00796b;
-}
-
-.user-request {
-  color: #ffffff;
-}
-
-.chat-response {
-  margin-top: 15px;
-  text-align: center;
-  color: #ffffff;
-}
-
-.robot-icon {
-  font-size: 48px;
-  color: #03a9f4;
-}
-
-.ai-icon {
-  font-size: 24px;
-  color: #ff5722;
+  background-color: #00796b; /* Change background color on hover */
 }
 
 /* Media queries for responsiveness */
+
+/* For screens with width less than or equal to 768px */
 @media (max-width: 768px) {
   .chat-container {
-    padding-top: 50px;
-    padding-left: 20px;
+    flex-direction: column; /* Stack chat history and chat box vertically */
+    margin-left: 0; /* Remove margin for small screens */
+  }
+
+  .chat-history {
+    width: 100%; /* Full width for chat history */
+    height: 40vh; /* Reduced height for smaller screens */
   }
 
   .chat-box {
-    width: 80%;
-    padding: 15px;
-  }
-
-  .input-combine {
-    gap: 10px;
-  }
-
-  .input-box {
-    padding: 8px;
-  }
-
-  .submit-button button {
-    padding: 8px 16px;
-    font-size: 16px;
+    width: 100%; /* Full width for chat box */
   }
 }
 
+/* For screens with width less than or equal to 480px */
 @media (max-width: 480px) {
   .chat-container {
-    padding-top: 30px;
-    padding-left: 10px;
+    padding: 10px; /* Adjust padding */
+  }
+
+  .chat-history {
+    height: 30vh; /* Further reduced height for very small screens */
   }
 
   .chat-box {
-    width: 90%;
-    padding: 10px;
-  }
-
-  .input-combine {
-    gap: 5px;
-  }
-
-  .input-box {
-    padding: 6px;
-  }
-
-  .submit-button button {
-    padding: 6px 12px;
-    font-size: 14px;
+    padding: 10px; /* Adjust padding for chat box */
   }
 }

@@ -250,7 +250,7 @@ const Feeds = () => {
           <form onSubmit={handleSubmit}>
             <textarea
               className="post-input"
-              placeholder="What's on your mind?"
+              placeholder="What's on your mind/Ngola maikutlo a hau?"
               value={newPost}
               onChange={handlePostChange}
             />

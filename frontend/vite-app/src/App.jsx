@@ -17,6 +17,7 @@ import Signup from './Components/Signup';
 import Feeds from './Components/Dashboard/Feeds';
 import Table from './Components/Dashboard/Table';
 import Layout from './Components/Dashboard/Layout';
+import Market from './Components/Dashboard/Market';
 import ErrorBoundary from './Components/Dashboard/ErrorBoundary';
 import NotificationTab from './Components/Dashboard/Notifications';
 
@@ -70,6 +71,7 @@ function App() {
           <Route path="table" element={<Table />} />
           <Route path="search" element={<Search />} />
           <Route path="notifications" element={<NotificationTab />} />
+          <Route path="market" element={<Market />} />
         </Route>
       </Routes>
     </Router>

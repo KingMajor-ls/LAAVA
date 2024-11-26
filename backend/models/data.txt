@@ -1,18 +1,23 @@
 
  #Introduction
 Who are you ?
- You are a chatbot called "LAAVA (Lesotho AI Agricultural Virtual Assist)" chatbot trained by two fifth year engineering students namely Mr Phali k, and Mr Nkoe.T. Your task is to help farmers in Lesotho use the best practices in agricuture and therefore maximizing yield.
+ You are a chatbot called "LAAVA (Lesotho AI Agricultural Virtual Assist)" 
+
+ u mang?;Ke LAAVA (Lesotho AI Agricultural Virtual Assist)" chatbot, ke koetliselitsoe ho thusa basotho ka temo. U ka botsa lipotso mabapi le temo ka nako ohle, ke tla u thusa. 
 
 U tseba nalane ?
  Ke tseba nalane hore Lesotho ke naha ea Morena Moshoeshoe ebile ke naha ea Khotso, Morena Moshoeshoe o hlahile ka 1786 a shoa ka 1870.
 
  #sesotho knowledge
+ 
 Agriculture in Sesotho is Temo.
-
+water is metsi
+tomatoes in sesotho is litamati, potatos are litapole
 Crops in sesotho are called Lijalo.
 
  #Agriculture in Lesotho
-Types of Agriculture iclude:
+Types of Agriculture iclude(sesotho translation: Mefuta ea temo e kenyellelitse): 
+
     Subsistence Agriculture:
         Definition: Subsistence agriculture is a farming practice where farmers grow crops and raise animals primarily for their family's consumption, with little or no surplus for sale.
 
@@ -44,11 +49,13 @@ Types of Agriculture iclude:
         Definition: Agroforestry integrates trees and shrubs into agricultural systems, providing ecological and economic benefits, such as improved soil fertility and additional income from timber or fruit production.
 
 
-Steps on how to plough tomato:
- 1.   Soil Preparation:
+Steps on how to plough tomato (sesotho translation: lintlha ha u lema tamati or mekhoa ea ho lema tamati or ke lema tamati joang):
+
+ 1.   Soil Preparation( sesotho translation:tukiso ea mobu):
+      
         Begin by preparing the soil. Tomato plants thrive in well-drained soil rich in organic matter. Use a plow or tiller to break up the soil and remove any debris.
 
- 2.   Choose a Suitable Variety:
+ 2.   Choose a Suitable Variety(sesotho translation: khetha tamati e loketsoeng ke boemo ba maholimo ho uena, etsetsa +26659191302 ho tseba ea hau):
         Select a tomato variety that suits your climate and soil conditions. Consider factors such as disease resistance and yield potential.
 
  3.   Spacing and Rows:
@@ -126,7 +133,7 @@ Below is the list of tomato diseases and their remedies:
     Cause: No disease present.
     Remedy: Maintain good cultural practices, monitor for signs of disease regularly, promptly address any issues that arise. And It means the uploaded crop image is healthy and therefore the user must adhere to their methods of farming.
 
-
+nyekoe ke mokopu o phehelletsoeng le phofo ea papa
 
 
 
@@ -216,3 +223,104 @@ In Lesotho, there are four seasons in a year; summer from December to February,
 with January being the warmest month; autumn from March to May;
 winter from June to August; and spring from September to November.
 
+
+if the information is not accurate or certain after the hypoyhesis suggest the following for confirmation:
+for crops contact +266558436087 (crop scietist) and +26622322741(Min. Agric)
+For animals or stock contact +26659191302, this are the phone numbers of professional help
+
+
+
+TLHOKOMELO LE TLHAISO EA MEROHO KA
+MEKHOA E METLE EKHOTHALETSOANG
+LENAFU LE GREEN VALE CHAINS
+SETEREKE SA MOHALE’S HOEK
+
+1, Mekhoa e metle ea tlhokomelo ea lihlahisoa tsa temo e khannela tlhahisong e nang
+le phaello, e baballang tikoloho le lihloliloeng e le ho etsa hore tlhahiso e be ea
+moshoelella. Mekhoa ena e sebelisoang ke lihoai e khetha libaka tsa moo ho ka
+hlahisetsoang hape e bonahala e na le bokhoni ba ho holisa moruo, hape e ntse e
+baballa tikoloho le bophelo ba sechaba. Leha ho le joalo, mekhoa ena ha se eona e
+laolang tlhahiso kaha tsamaiso ea mapolasi e fapakane, a mang a hloka mekhoa
+e meng e ikhethang. Empa mekhoa ena e fana ka tataiso e ka lateloang ke lihoai
+ho nyolla tlhahiso ea mapolasi a bona. Mekhoa ena lihoai li ka ipapisa ka eona e
+le mehloli, mehaho, meetlo kapa meoloane ea boipapiso tsamaisong e ntle ea
+mapolasing a tsona.
+ Mekhoa ena e ka sebelisoa e le mohloli oa boipapiso ho thibela kapa ho ntša
+‘marakeng lichefo le menontša e bonahalang e ka silafatsa tikoloho.
+ Mekhoa ea thibelo ea khoholeho ea mobu ka ho sebelisa mekhoa e
+fapakaneng ea ho lema joalo ka ngoapa-u-jale, temo ea likoti, khaho ea
+marakoana a thibelang metsi a phallang a pula le mokhoa oa noesetsoe o
+baballang metsi.
+ Mekhoa ena e tloaelehile ho sebelisoa ke lihoai ho fokotsa mathata a
+bakoang ke likokonyna, kholeho ea mobu, ho phahamisa tsebeliso e ntle ea
+matsoai ke sejalo ka ho baballa mobu le ho fetola lijalo.
+ Tsamaiso e nepahetseng ea polasi ea lijalo ke mokhoa o motle o ka
+sebelisoang ke lihoai tse nang le chebelo-pele ka pabalo ea tikoloho le ho
+nyolla moruo.
+1.2 SEPHEHO SA HO KENYA MEKHOA E METLE EA TLHOKOMELO
+ EA LIJALO TŠEBETSONG
+Lihoai tsa meroho tsa Mohale’s Hoek ha li ka kenya mekhoa e metle ea ho hlahisa
+tšebetsong, li kaba le bonnete ba tšebeliso ea moshoelella ea mobu le metsi, e ka
+sitana le ntlafatso ea lisebelisoa tse ling tse ka fetoloang boleng ba tsona e le ho
+tsoela lihoai molemo ka har’a ketane ea litšebeletso tsa tlhahiso ea lijalo. Ho kenya
+mekhoa e metle ea tlhokomelo ea lijalo tšebetsong hape ho ka etsa hore matla le
+lisebelisoa tse ling li etse hore tlhahiso ea lijalo e be holimo empa ho sena tšilafalo
+ea tikoloho
+2.0 MOKHOA OA TŠEBETSO
+2.1 KABO EA LINTLHA
+Lipolasi tsa meroho li ile tsa eteloa, lihoai tsa botsoa lipotso ho shebanoe mahlong
+hape ho ile hoa tlalehoa se bonoeng lipolasing tse neng li etetsoe. Mekhoa e
+nepahetseng ea ho hlahisa meroho e ile ea hlahlojoa ho ipapisitsoe le tse latelang;
+1. Bobe kapa ntho e sa amoheleheng tšebelisong ea mekhoa e metle ea tlhahiso.
+2. Ho nkoang ho le mahareng tšebelisong ea mekhoa e metle ea tlhaiso.
+3. Ho nepahetseng tšebelisong ea mekhoa e metle ea tlhaiso.
+2.2 MEKHOA E ILE EA HLAHLOJOA TLASA LIPEHELO TSE LATELANG;
+ Tšebeliso ea makhoakhoa (green house and tunnel) kapa masimo a sa
+tšireletsoang, mobu le mothipoloho o nepahetseng, phumaneho kapa boteng
+ba metsi le tlhahlobo ea mobu e le ho fumana boemo ba matsoai a hlokoang
+ke sejalo.
+ Tšebeliso ea lijalo tse ntlafalitsoeng, tšebeliso ea mosuoela o putileng ho
+ntlafatsa sebopeho sa mobu, tlhahiso ea meroho le chai ea eona le kakaretso
+ea tse lokelang ho etsahala tlhahisong ea lijalo.
+ Mekhoa ea ho baballa mobu moo ho lenngoeng, ho fetola lijalo le ho koaela
+mobu ka sejalo se lengoang lipakeng tsa meroho, ho beha litšireletso ho
+lim’a mobu le lipakeng tsa mela ea meroho le ho kopanya mekhoa e
+nepahetseng ho laola likokonyana.
+ Temo e tšireletsang lijalo khahlaong le maemo a leholimo.
+ Tsa limmaraka le matšoaro a meroho.
+ Poloko ea libuka.
+
+khuliso ea moroho (growth of cabbbage and spinach):
+
+1. use tunnels and greenhouse(translation: sebelisa makhoakhoa. Lihoai tsa lijalo ka moka ba sebelisa
+makhoakhoa ho hlahisa lijalo. Lijalo tse ling ba
+ntse ba lihlahisa kantle ho makhoakhoa. Lijalo
+tse kang tamati le green pepper lihlahisoa ka
+makhoakhoeng ha cabbage eona e lengoa ka ntle
+le kahare ho makhoakhoa. )
+
+2. use hybrid deedlinglings also help(translate:Polasi ea Me Seqao e reka lithopo
+tse ntlafalitsoeng tsa cabbage,
+tomato le green pepper. Monghali Poone u sebelisa lipeo tse ntlafalitsoe joalo ka
+Green Coronet le pelo ea khomo ho hlahisa moroho oa cabbage. Monghali Lebona
+eena u sebelisa lipeo tse joalo ka Rhapsody, California Wonder ho hlahisa tamati
+le green pepper. Polasi ea ntate Monenane eona e sebelisa lipeo tse ntlafalitsoeng
+tsa cabbage e leng Green Coronet le Green Star, ho hlahisa tamati teng ho
+sebelisoa Trinity.)
+
+3. Use the soil prediction to test for soil(translation: lekola mobu ka lietekong, T’sebeliso ea mosuela o
+putileng ntlafatsong ea mobu
+ke kobo anela lihoaing. Lihoai li bontsitse ha li sebelisa moeteli o tsoang masakeng
+a bona ho ntlafatsa mobu. Ho tlatseletsa manoni a mobu lihoai li supa hore
+lisebelisa manyolo a sekhooa joalo ka
+6:2:1 (31), 2:3:2 (22) ebe ha lijalo li se li
+hlahile ba tšela monontša o bitsoang
+LAN. Ntate Lebona a tlaleha hore u
+sebelisa sehlahisoa sa calcium nitrate ho
+ntlafatsa tholoana ea tamati.
+Mofumahali Seqao a tiisa hore mobu oa
+hae o ne o sa matlafala feela kamora ho
+sebelisa mosuoela mobu oa hae o
+matlafetse hoo a sa hlokeng ho sebelisa
+kharafu ha lema)
+4. 

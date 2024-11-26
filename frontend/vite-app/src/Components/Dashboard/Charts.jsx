@@ -24,9 +24,9 @@ function Charts() {
   return (
     <div className='chartT'>
        <Link to="../table">
-            See table
+            History/Nalane ea lijalo
             </Link>
-      <h2>Sensor Data Charts</h2>
+      <h2>Sensor Data Charts/Boemo bo lijalong</h2>
 
       <div className="chart-container">
         <LineChart

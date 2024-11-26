@@ -25,15 +25,6 @@ async function createPost(postData) {
     }
   }
   
-//   async function getPosts() {
-//     try {
-//       const { rows } = await pool.query('SELECT * from posts');
-//       return rows;
-//     } catch (error) {
-//       console.error('Error getting posts:', error);
-//       throw error;
-//     }
-//   }
   async function getPosts() {
     try {
       const { rows } = await pool.query(`
@@ -48,18 +39,7 @@ async function createPost(postData) {
     }
   }
   
-// async function likePost(postId, userId) {
-//   try {
-//     const { rows } = await pool.query(
-//       'UPDATE posts SET likes = array_append(likes, $1) WHERE id = $2 RETURNING *',
-//       [userId, postId]
-//     );
-//     return rows[0];
-//   } catch (error) {
-//     console.error('Error liking post:', error);
-//     throw error;
-//   }
-// }
+
 
 async function likePost(postId, userId) {
   try {

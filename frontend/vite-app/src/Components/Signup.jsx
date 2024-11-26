@@ -200,19 +200,19 @@ function Signup() {
       <div className="signup">
         <form onSubmit={handleFormSubmit} className="signForm">
           <div>
-            <input type="text" placeholder="Surname" value={surname} onChange={(e) => setSurname(e.target.value)} />
+            <input type="text" placeholder="Surname/fane" value={surname} onChange={(e) => setSurname(e.target.value)} />
           </div>
           <div>
-            <input type="text" placeholder="First name" value={name} onChange={(e) => setFirstName(e.target.value)} />
+            <input type="text" placeholder="First name/Lebitso la pele" value={name} onChange={(e) => setFirstName(e.target.value)} />
           </div>
           <div>
-            <input type="text" placeholder="Username" value={username} onChange={(e) => setUserName(e.target.value)} />
+            <input type="text" placeholder="Username/lebitso leo utla tsebahala ka lona" value={username} onChange={(e) => setUserName(e.target.value)} />
           </div>
           <div>
             <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
           <div>
-            <input type="text" placeholder="Phone number" value={phone_number} onChange={(e) => setPhoneNumber(e.target.value)} />
+            <input type="text" placeholder="Linomoro tsa mohala" value={phone_number} onChange={(e) => setPhoneNumber(e.target.value)} />
           </div>
           <div>
             <input type="text" placeholder="Home address" value={home_address} onChange={(e) => setHomeAdress(e.target.value)} />

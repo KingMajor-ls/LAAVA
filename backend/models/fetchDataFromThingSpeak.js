@@ -5,11 +5,11 @@ const { Pool } = require('pg');
 
 // PostgreSQL database configuration
 const pool = new Pool({
-    user: 'postgres',  // Replace with your PostgreSQL username
-    host: 'localhost',       // Use 'localhost' or '127.0.0.1' for local connections
+    user: 'postgres',  
+    host: 'localhost',      
     database: 'laava_database',
-    password: 'root',  // Replace with your PostgreSQL password
-    port: 5432,              // Default PostgreSQL port
+    password: 'root',  
+    port: 5432,           
 });
 
 // Function to fetch data from ThingSpeak and insert into PostgreSQL
@@ -17,7 +17,6 @@ async function fetchDataAndInsert() {
     try {
         // Fetch data from ThingSpeak
         const response = await axios.get(
-            // `https://api.thingspeak.com/channels/2391728/feeds.json?api_key=RABUE3OO0HQ6YI59&results=1`
             'https://api.thingspeak.com/channels/2463386/feeds.json?api_key=JD8V8JT4LAS4TNHK&results=1'
         );
         
@@ -43,8 +42,10 @@ async function fetchDataAndInsert() {
     }
 }
 
+fetchDataAndInsert();
+
 // Set up an interval to fetch data every minute
-const interval = setInterval(fetchDataAndInsert, 6000000);
+const interval = setInterval(fetchDataAndInsert, 6000000); //60000
 
 // Close the PostgreSQL pool when the script is terminated
 process.on('SIGINT', async () => {
